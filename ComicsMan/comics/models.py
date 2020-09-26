@@ -8,7 +8,7 @@ class AuthorAndPainter(models.Model):
     name = models.CharField("Имя", max_length=100)
     age = models.PositiveSmallIntegerField("Возраст", default=0)
     description = models.TextField("Описание")
-    image = models.ImageField("Фото", upload_to="author_painter/")
+    image = models.ImageField("Фото", upload_to="img/author_painter/")
 
     def __str__(self):
         return self.name
@@ -22,7 +22,7 @@ class Personage(models.Model):
     """Персонаж."""
     name = models.CharField("Имя", max_length=100)
     description = models.TextField("Описание")
-    image = models.ImageField("Фото", upload_to="personage/")
+    image = models.ImageField("Фото", upload_to="img/personage/")
 
     def __str__(self):
         return self.name
@@ -62,8 +62,8 @@ class Comics(models.Model):
     title = models.CharField("Название", max_length=100)
     tagline = models.CharField("Слоган", max_length=200, null=True)
     description = models.TextField("Описание")
-    image = models.ImageField("Обложка", upload_to="cover/")
-    date = models.DateTimeField("Дата выхода", default=date.today)
+    image = models.ImageField("Обложка", upload_to="img/cover/")
+    date = models.DateField("Дата выхода", default=date.today())
     country = models.CharField("Страна", max_length=70)
     publisher = models.ManyToManyField(Publisher, verbose_name="Издатель",
                                        related_name="comics_publisher")
