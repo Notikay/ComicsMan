@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import AuthorAndPainter, Personage, Genre, Publisher, Comics, Star, Raiting, Reviews
+from .models import AuthorAndPainter, Personage, Genre, Publisher, Comics, \
+    Star, Raiting, Reviews
 
 admin.site.register(AuthorAndPainter)
 admin.site.register(Personage)
