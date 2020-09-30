@@ -65,6 +65,7 @@ db.sqlite3-journal
 !**/migrations/__init__.py
 media/
 static/libs/
+static/fonts/
 
 # Flask stuff:
 instance/

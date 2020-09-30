@@ -1,0 +1,106 @@
+/*==== Fonts ====*/
+
+/*@font-face {
+  font-family: RobotoSlab-Thin;
+  src: url('../fonts/RobotoSlab-Thin.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-ExtraLight;
+  src: url('../fonts/RobotoSlab-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-Light;
+  src: url('../fonts/RobotoSlab-Light.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-Regular;
+  src: url('../fonts/RobotoSlab-Regular.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-Medium;
+  src: url('../fonts/RobotoSlab-Medium.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-SemiBold;
+  src: url('../fonts/RobotoSlab-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-Bold;
+  src: url('../fonts/RobotoSlab-Bold.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-ExtraBold;
+  src: url('../fonts/RobotoSlab-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab-Black;
+  src: url('../fonts/RobotoSlab-Black.ttf');
+}*/
+
+/*            <div class="header-contacts">
+              <div class="row">
+                <address class="">
+                  Связаться с автором <a href="mailto:a.bob_bis@mail.ru">Notikay</a>.<br>
+                  г. Уфа, 8 марта, д. 8, ком. 427<br>
+                  Россия, Башкортостан<br>
+                  <abbr title="Телефон">Тел.</abbr>+7 (800) 555-35-35
+                </address>
+                <div class="working-hourse">8:00-17:00</div>
+              </div>
+            </div>*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: Roboto Slab, serif;
+}
+
+/*==== Header ====*/
+header {
+  background: url("../img/header/bg.jpg") no-repeat center;
+}
+
+.header-slider img {
+  width: 300px;
+  padding: 0px 0px 130px 0;
+}
+
+.navigation nav .nav-link {
+	font-weight: 700;
+  margin: 0 10px;
+  color: #fff;
+}
+
+.navigation nav .nav-link:hover {
+  background-color: #eb3d34;
+}
+
+.header-navbar {
+  padding: 50px 0px;
+}
+
+.dropdown-menu {
+  background-color: #1a1a1a;
+}
+
+.dropdown-item {
+  font-weight: 200;
+  color: #fff;
+}
+
+.dropdown-item:hover {
+  color: #eb3d34;
+  background-color: #1a1a1a;
+}
+
+#home {
+  background-color: #eb3d34;
+}

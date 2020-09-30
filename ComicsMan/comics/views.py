@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from .models import Comics
+from .models import Comics, Slide
 
 
 class ComicsView(View):
@@ -9,4 +9,6 @@ class ComicsView(View):
 
     def get(self, request):
         comics = Comics.objects.all()
-        return render(request, "comics/index.html", {"comics_list": comics})
+        slider = Slide.objects.all()
+        return render(request, "comics/index.html",
+                      {"comics_list": comics, "header_slide_list": slider})

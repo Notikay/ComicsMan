@@ -8,19 +8,100 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap.min.css' %}"> -->
 
+    <link rel="stylesheet" type="text/css" href="{% static 'comics/css/styles.css' %}">
+
     <title>ComicsMan</title>
   </head>
   <body>
-    <h1>Hello, ComicsMan developer!</h1>
+    <header>
+      <div class="header-navbar">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="logo">
+              <img src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
+            </div>
+            <div class="navigation">
+              <nav class="nav nav-pills">
+                <a href="#" class="nav-link active" id="home">Главная</a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Каталог</a>
+                <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item">Новинки</a>
+                  <a href="#" class="dropdown-item">Популярное</a>
+                  <a href="#" class="dropdown-item">Рекомендации</a>
+                  <a href="#" class="dropdown-item">Случайное</a>
+                </div>
+                <a href="#" class="nav-link">FAQ</a>
+                <a href="#" class="nav-link">О нас</a>
+                <a href="#" class="nav-link">Контакты</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-slider">
+        <div class="container">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              {% for slide in header_slide_list %}
+                {% if forloop.counter0 == 0 %}
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                {% else %}
+                  <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+              {% for slide in header_slide_list %}
+                {% if forloop.counter0 == 0 %}
+                  <div class="carousel-item text-center active">
+                    <img src="{{ slide.image.url }}" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>{{ slide.title }}</h5>
+                      <p>{{ slide.description }}</p>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="carousel-item text-center">
+                    <img src="{{ slide.image.url }}" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>{{ slide.title }}</h5>
+                      <p>{{ slide.description }}</p>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div>
+        <div class="container"></div>
+      </div>
+    </main>
+    <footer>
+      <div>
+        <div class="container">
+          <a href="https://ru.freepik.com/photos/background">Background фото создан(а) freepik - ru.freepik.com</a>
+        </div>
+      </div>
+    </footer>
 
     <!-- Optional JavaScript -->
-    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'comics/js/scripts.js' %}"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
