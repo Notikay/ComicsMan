@@ -1,3 +1,5 @@
+<!-- TODO Адаптировать header-slider под мобильные устройства. -->
+
 <!doctype html>
 
 {% load static %}
@@ -45,36 +47,58 @@
       <div class="header-slider">
         <div class="container">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              {% for slide in header_slide_list %}
+                {% if forloop.first %}
+                  <div class="carousel-item text-center active">
+                    <div class="row justify-content-around">
+                      <div class="item">
+                        <img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{ slide.0.title }}</h5>
+                          <p>{{ slide.0.description }}</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{ slide.1.title }}</h5>
+                          <p>{{ slide.1.description }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="carousel-item text-center">
+                    <div class="row justify-content-around">
+                      <div class="item">
+                        <img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{ slide.0.title }}</h5>
+                          <p>{{ slide.0.description }}</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{ slide.1.title }}</h5>
+                          <p>{{ slide.1.description }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
             <ol class="carousel-indicators">
               {% for slide in header_slide_list %}
-                {% if forloop.counter0 == 0 %}
+                {% if forloop.first %}
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 {% else %}
                   <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
                 {% endif %}
               {% endfor %}
             </ol>
-            <div class="carousel-inner">
-              {% for slide in header_slide_list %}
-                {% if forloop.counter0 == 0 %}
-                  <div class="carousel-item text-center active">
-                    <img src="{{ slide.image.url }}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>{{ slide.title }}</h5>
-                      <p>{{ slide.description }}</p>
-                    </div>
-                  </div>
-                {% else %}
-                  <div class="carousel-item text-center">
-                    <img src="{{ slide.image.url }}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>{{ slide.title }}</h5>
-                      <p>{{ slide.description }}</p>
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>

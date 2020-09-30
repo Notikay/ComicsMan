@@ -45,18 +45,6 @@
   src: url('../fonts/RobotoSlab-Black.ttf');
 }*/
 
-/*            <div class="header-contacts">
-              <div class="row">
-                <address class="">
-                  Связаться с автором <a href="mailto:a.bob_bis@mail.ru">Notikay</a>.<br>
-                  г. Уфа, 8 марта, д. 8, ком. 427<br>
-                  Россия, Башкортостан<br>
-                  <abbr title="Телефон">Тел.</abbr>+7 (800) 555-35-35
-                </address>
-                <div class="working-hourse">8:00-17:00</div>
-              </div>
-            </div>*/
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
 
 body {
@@ -64,31 +52,64 @@ body {
 }
 
 /*==== Header ====*/
-header {
-  background: url("../img/header/bg.jpg") no-repeat center;
+@media (prefers-reduced-motion: reduce) {
+  .carousel-item {
+    transition: -webkit-transform 0.6s ease-in-out !important;
+    transition: transform 0.6s ease-in-out !important;
+    transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out !important;
+  }
 }
 
+header {
+  background: url("../img/header/bg.jpg") no-repeat bottom;
+  background-size: 100% 100%;
+}
+
+/* Slider */
 .header-slider img {
   width: 300px;
-  padding: 0px 0px 130px 0;
 }
 
-.navigation nav .nav-link {
-	font-weight: 700;
-  margin: 0 10px;
-  color: #fff;
+.header-slider .carousel-indicators {
+  position: static;
 }
 
-.navigation nav .nav-link:hover {
-  background-color: #eb3d34;
+.header-slider .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 300px;
+  position: static;
+  margin: auto;
+}
+
+.header-slider .carousel-caption h5 {
+  transition: 0.3s linear;
+}
+
+.header-slider .carousel-caption h5:hover {
+  color: #d81a24;
+}
+
+/* Navigation */
+#home {
+  background-color: #d81a24;
 }
 
 .header-navbar {
   padding: 50px 0px;
 }
 
+.navigation .nav-link {
+  font-weight: 700;
+  margin: 0 10px;
+  color: #fff;
+}
+
+.navigation .nav-link:hover {
+  background-color: #d81a24;
+}
+
 .dropdown-menu {
-  background-color: #1a1a1a;
+  background-color: #151515;
 }
 
 .dropdown-item {
@@ -97,10 +118,6 @@ header {
 }
 
 .dropdown-item:hover {
-  color: #eb3d34;
-  background-color: #1a1a1a;
-}
-
-#home {
-  background-color: #eb3d34;
+  color: #d81a24;
+  background-color: #151515;
 }

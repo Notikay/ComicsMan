@@ -1,3 +1,5 @@
+# TODO Добавить поле для ссылки в Slide.
+
 from datetime import date
 
 from django.db import models
@@ -134,7 +136,7 @@ class Reviews(models.Model):
 class Slide(models.Model):
     """Слайды."""
     title = models.CharField("Название слайда", max_length=100)
-    description = models.TextField("Описание")
+    description = models.TextField("Описание", max_length=59)
     image = models.ImageField("Изображение", upload_to="img/slides/")
 
     def __str__(self):
