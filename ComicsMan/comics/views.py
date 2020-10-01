@@ -1,5 +1,3 @@
-# TODO Проверить slider_list на нечётность.
-
 from django.shortcuts import render
 from django.views.generic.base import View
 
@@ -13,8 +11,11 @@ class ComicsView(View):
         slider = []
         comics = Comics.objects.all()
         slider_list = list(Slide.objects.all())
-        for i in range(0, len(slider_list), 2):
-            slider.append([slider_list[i], slider_list[i + 1]])
-        print(slider)
+        length = len(slider_list)
+        for i in range(0, length, 2):
+            if length % 2 != 0 and i == length - 1:
+                slider.append([slider_list[i]])
+            else:
+                slider.append([slider_list[i], slider_list[i + 1]])
         return render(request, "comics/index.html",
                       {"comics_list": comics, "header_slide_list": slider})

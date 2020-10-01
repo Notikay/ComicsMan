@@ -1,4 +1,5 @@
 <!-- TODO Адаптировать header-slider под мобильные устройства. -->
+<!-- TODO Уменьшение шрифта заголовка .carousel-caption. -->
 
 <!doctype html>
 
@@ -49,16 +50,16 @@
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               {% for slide in header_slide_list %}
-                {% if forloop.first %}
-                  <div class="carousel-item text-center active">
-                    <div class="row justify-content-around">
-                      <div class="item">
-                        <img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>{{ slide.0.title }}</h5>
-                          <p>{{ slide.0.description }}</p>
-                        </div>
+                <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
+                  <div class="row justify-content-around">
+                    <div class="item">
+                      <img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ slide.0.title }}</h5>
+                        <p>{{ slide.0.description }}</p>
                       </div>
+                    </div>
+                    {% if slide|length == 2 %}
                       <div class="item">
                         <img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide">
                         <div class="carousel-caption d-none d-md-block">
@@ -66,37 +67,14 @@
                           <p>{{ slide.1.description }}</p>
                         </div>
                       </div>
-                    </div>
+                    {% endif %}
                   </div>
-                {% else %}
-                  <div class="carousel-item text-center">
-                    <div class="row justify-content-around">
-                      <div class="item">
-                        <img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>{{ slide.0.title }}</h5>
-                          <p>{{ slide.0.description }}</p>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>{{ slide.1.title }}</h5>
-                          <p>{{ slide.1.description }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                {% endif %}
+                </div>
               {% endfor %}
             </div>
             <ol class="carousel-indicators">
               {% for slide in header_slide_list %}
-                {% if forloop.first %}
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                {% else %}
-                  <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
-                {% endif %}
+                  <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
               {% endfor %}
             </ol>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
