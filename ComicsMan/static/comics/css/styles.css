@@ -95,22 +95,22 @@ header {
   color: #d81a24;
 }
 
-/* Navigation */
+/* Navbar */
 #home {
   background-color: #d81a24;
 }
 
-.header-navbar {
+.header {
   padding: 50px 0px;
 }
 
-.navigation .nav-link {
+.header-nav .nav-link {
   font-weight: 700;
   margin: 0 10px;
   color: #fff;
 }
 
-.navigation .nav-link:hover {
+.header-nav .nav-link:hover {
   background-color: #d81a24;
 }
 
