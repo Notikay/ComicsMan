@@ -1,5 +1,3 @@
-<!-- TODO Адаптировать header-nav под мобильные устройства. -->
-
 <!doctype html>
 
 {% load static %}
@@ -22,26 +20,41 @@
     <header>
       <div class="header">
         <div class="container">
-          <div class="row justify-content-between">
-            <div class="logo">
+          <nav class="header-nav navbar navbar-dark navbar-expand-lg">
+            <a class="navbar-brand" href="#">
               <img src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <ul class="navbar-nav nav-pills text-center">
+                <li class="nav-item active">
+                  <a href="#" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Каталог
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Новинки</a>
+                    <a class="dropdown-item" href="#">Популярное</a>
+                    <a class="dropdown-item" href="#">Рекомендации</a>
+                    <a class="dropdown-item" href="#">Случайное</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">О нас</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Контакты</a>
+                </li>
+              </ul>
             </div>
-            <div class="header-nav">
-              <nav class="nav nav-pills">
-                <a href="#" class="nav-link active" id="home">Главная</a>
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Каталог</a>
-                <div class="dropdown-menu">
-                  <a href="#" class="dropdown-item">Новинки</a>
-                  <a href="#" class="dropdown-item">Популярное</a>
-                  <a href="#" class="dropdown-item">Рекомендации</a>
-                  <a href="#" class="dropdown-item">Случайное</a>
-                </div>
-                <a href="#" class="nav-link">FAQ</a>
-                <a href="#" class="nav-link">О нас</a>
-                <a href="#" class="nav-link">Контакты</a>
-              </nav>
-            </div>
-          </div>
+          </nav>
         </div>
       </div>
       <div class="header-slider">
