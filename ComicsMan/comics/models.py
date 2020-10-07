@@ -129,18 +129,3 @@ class Reviews(models.Model):
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
-
-
-class Slide(models.Model):
-    """Слайды."""
-    title = models.CharField("Название слайда", max_length=100)
-    description = models.TextField("Описание", max_length=59)
-    image = models.ImageField("Изображение", upload_to="img/slides/")
-    url = models.URLField("Ссылка", blank=True)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = "Слайд"
-        verbose_name_plural = "Слайды"

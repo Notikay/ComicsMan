@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import AuthorAndPainter, Personage, Genre, Publisher, Comics, \
-    Star, Raiting, Reviews, Slide
+    Star, Raiting, Reviews
 
 admin.site.register(AuthorAndPainter)
 admin.site.register(Personage)
@@ -11,4 +11,3 @@ admin.site.register(Comics)
 admin.site.register(Star)
 admin.site.register(Raiting)
 admin.site.register(Reviews)
-admin.site.register(Slide)
