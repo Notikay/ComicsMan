@@ -51,6 +51,7 @@ body {
   font-family: Roboto Slab, serif;
 }
 
+
 /*==== Header ====*/
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
@@ -182,4 +183,71 @@ header {
 
 .navbar-dark .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+/*==== Main ====*/
+
+/* Filters */
+.filters {
+  padding: 30px 0;
+}
+
+.filters h2 {
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 38pt;
+}
+
+.filters hr {
+  width: 100px;
+  border-bottom: 3px solid #b7b7b7;
+  border-top: none;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.new-releases h3 {
+  color: #d81a24;
+  font-size: 24pt;
+  text-transform: uppercase;
+}
+
+.new-comics {
+  margin-bottom: 20px;
+}
+
+.new-releases .card-deck {
+  margin-top: 30px;
+}
+
+.new-comics .card {
+  width: 260px;
+  margin: auto;
+}
+
+.new-comics .card-body {
+  height: 275px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .filters h2 {
+    font-size: 27pt;
+  }
+
+  .new-releases h3 {
+    text-align: center;
+    font-size: 17pt;
+  }
+
+  .new-comics .card-body {
+    height: auto;
+    padding: 0.7rem;
+    margin: auto;
+  }
+
+  .new-comics .card-body h5 {
+    margin: 0;
+  }
 }

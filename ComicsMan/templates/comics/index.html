@@ -1,4 +1,5 @@
-<!--TODO Добавить в "filters" кнопки выбора "Популярные", "Новые", "###".-->
+<!--TODO Ограничить новые релизы до 8 комиксов.-->
+<!--TODO Добавить кнопку "Увидеть больше" для новых релизов.-->
 
 <!doctype html>
 
@@ -139,9 +140,35 @@
     <main>
       <div class="main container">
         <section class="filters">
-          <h3>What to read?</h3>
+          <h2>Что почитать?</h2>
           <hr>
-
+          <div class="new-releases">
+            <h3>{{ date }}Новое</h3>
+            <div class="card-deck">
+              <div class="container">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                  {% for comics in comics_list %}
+                    <div class="col new-comics">
+                      <div class="card">
+                        <img src="{{ comics.image.url }}" class="card-img-top" alt="{{ forloop.counter0 }}">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ comics.title }}</h5>
+                          <p class="card-text d-none d-md-block">{{ comics.description }}</p>
+                        </div>
+                        <div class="card-footer">
+                          <small class="text-muted">{{ comics.date }}</small>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popular">
+          </div>
+          <div class="featured">
+          </div>
         </section>
       </div>
     </main>
