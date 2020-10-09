@@ -1,3 +1,6 @@
+<!--TODO Как отобразить популярные комиксы-->
+<!--TODO Добавить ссылки на слайды-->
+
 <!doctype html>
 
 {% load static %}
@@ -65,8 +68,7 @@
           <h2>Что почитать?</h2>
           <hr>
           {% block new_releases %} Новые релизы {% endblock %}
-          <div class="popular">
-          </div>
+          {% block popular %} Популярное {% endblock %}
           <div class="featured">
           </div>
         </section>
