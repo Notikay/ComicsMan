@@ -251,3 +251,23 @@ header {
     margin: 0;
   }
 }
+
+.view-all {
+  margin-top: 3vw;
+}
+
+.view-all a {
+  text-decoration: none;
+  color: #d81a24;
+  font-size: 14pt;
+  font-weight: 500;
+  padding: 10px 40px;
+  border: 2px #d81a24 solid;
+  border-radius: 6px;
+  transition: 0.3s linear;
+}
+
+.view-all a:hover {
+  color: #fff;
+  background-color: #d81a24;
+}
