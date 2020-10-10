@@ -8,17 +8,17 @@
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="row justify-content-around">
             <div class="item">
-              <img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide">
+              <a href="{{ slide.0.url }}"><img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide"></a>
               <div class="carousel-caption d-none d-md-block">
-                <h5>{{ slide.0.title }}</h5>
+                <a href="{{ slide.0.url }}"><h5>{{ slide.0.title }}</h5></a>
                 <p>{{ slide.0.publisher.all.0 }}, {{ slide.0.country }}, {{ slide.0.date }}, {{ slide.0.genre.all.0 }}</p>
               </div>
             </div>
             {% if slide|length == 2 %}
               <div class="item">
-                <img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide">
+                <a href="{{ slide.1.url }}"><img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide"></a>
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>{{ slide.1.title }}</h5>
+                  <a href="{{ slide.1.url }}"><h5>{{ slide.1.title }}</h5></a>
                   <p>{{ slide.1.publisher.all.0 }}, {{ slide.1.country }}, {{ slide.1.date }}, {{ slide.1.genre.all.0 }}</p>
                 </div>
               </div>
@@ -48,13 +48,13 @@
       {% for slide in header_slide_list %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="item">
-            <img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide">
+            <a href="{{ slide.0.url }}"><img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slide"></a>
           </div>
         </div>
         {% if slide|length == 2 %}
           <div class="carousel-item text-center">
             <div class="item">
-              <img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide">
+              <a href="{{ slide.1.url }}"><img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slide"></a>
             </div>
           </div>
         {% endif %}
@@ -85,16 +85,15 @@
   <div class="card-deck">
     <div class="container">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-        {% for comics in new_releases %}
+        {% for new_comics in new_releases %}
           <div class="col new-comics {% if forloop.counter0 > 2 %}d-none {% if forloop.counter0 < 6 %}d-md-block {% else %}d-xl-block{% endif %}{% endif %}">
             <div class="card">
-              <img src="{{ comics.image.url }}" class="card-img-top" alt="{{ forloop.counter0 }}">
-              <div class="card-body">
-                <h5 class="card-title">{{ comics.title }}</h5>
-                <p class="card-text d-none d-md-block">{{ comics.description }}</p>
+              <a href="{{ new_comics.url }}"><img src="{{ new_comics.image.url }}" class="card-img-top" alt="{{ forloop.counter0 }}"></a>
+              <div class="card-body d-flex justify-content-center">
+                <h5 class="card-title align-self-center">{{ new_comics.title }}</h5>
               </div>
               <div class="card-footer">
-                <small class="text-muted">{{ comics.date }}</small>
+                <small>{{ new_comics.date }}</small>
               </div>
             </div>
           </div>

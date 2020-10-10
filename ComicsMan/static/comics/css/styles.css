@@ -111,13 +111,18 @@ header {
 }
 
 .header-slider .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
   width: 300px;
   position: static;
   margin: auto;
   height: 100%;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.header-slider .carousel-caption a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .header-slider .carousel-caption h5 {
@@ -129,6 +134,15 @@ header {
 
 .header-slider .carousel-caption h5:hover {
   color: #d81a24;
+}
+
+.header-slider .item {
+  opacity: 0.6;
+  transition: 0.3s linear;
+}
+
+.header-slider .item:hover {
+  opacity: 1;
 }
 
 .indicators {
@@ -207,7 +221,7 @@ header {
   margin-top: 30px;
 }
 
-.new-releases h3 {
+.filters h3 {
   color: #d81a24;
   font-size: 24pt;
   text-transform: uppercase;
@@ -224,11 +238,36 @@ header {
 .new-comics .card {
   width: 260px;
   margin: auto;
+  border: none;
+}
+
+.new-comics .card img {
+  transition: 0.3s linear;
+}
+
+.new-comics .card:hover img {
+  width: 255px;
+  opacity: 0.7;
 }
 
 .new-comics .card-body {
-  height: 275px;
-  overflow: hidden;
+  padding: 10px;
+}
+
+.new-comics .card-title {
+  font-size: 10pt;
+  margin-bottom: 0;
+  transition: 0.3s linear;
+}
+
+.new-comics .card-footer {
+  border-color: #555;
+  padding: 5px;
+  background-color: white;
+}
+
+.new-comics small {
+  color: #3c3c3c;
 }
 
 @media (max-width: 767px) {
@@ -236,7 +275,7 @@ header {
     font-size: 27pt;
   }
 
-  .new-releases h3 {
+  .filters h3 {
     text-align: center;
     font-size: 17pt;
   }
@@ -253,7 +292,7 @@ header {
 }
 
 .view-all {
-  margin-top: 3vw;
+  margin-top: 2vw;
 }
 
 .view-all a {
@@ -271,3 +310,8 @@ header {
   color: #fff;
   background-color: #d81a24;
 }
+
+.popular {
+  margin-top: 70px;
+}
+
