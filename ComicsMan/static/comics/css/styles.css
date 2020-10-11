@@ -253,6 +253,7 @@ header {
 .card-img:hover, .card-img-top:hover {
   width: 255px;
   opacity: 0.7;
+  box-shadow: none;
 }
 
 .new-comics .card-body {
