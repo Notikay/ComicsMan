@@ -132,10 +132,6 @@ header {
   text-overflow: ellipsis;
 }
 
-.header-slider .carousel-caption h5:hover {
-  color: #d81a24;
-}
-
 .header-slider .item {
   opacity: 0.6;
   transition: 0.3s linear;
@@ -227,25 +223,34 @@ header {
   text-transform: uppercase;
 }
 
+.new-releases .card-title a {
+  color: #212529;
+  text-decoration: none;
+  transition: 0.3s linear;
+}
+
 .new-comics {
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
-.new-releases .card-deck {
-  margin-top: 30px;
+.card-deck {
+  margin-top: 20px;
 }
 
-.new-comics .card {
+.card {
   width: 260px;
   margin: auto;
   border: none;
 }
 
-.new-comics .card img {
+.card-img, .card-img-top {
+  border-radius: 0;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
   transition: 0.3s linear;
 }
 
-.new-comics .card:hover img {
+.card-img:hover, .card-img-top:hover {
   width: 255px;
   opacity: 0.7;
 }
@@ -315,3 +320,82 @@ header {
   margin-top: 70px;
 }
 
+.popular-comics {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.popular .card {
+  margin: 0 auto;
+}
+
+.popular .card-body {
+  padding: 0;
+}
+
+.popular .card-title a {
+  text-decoration: none;
+  color: #212529;
+  transition: 0.3s linear;
+}
+
+.big-card {
+  padding-bottom: 10px;
+  padding-top: 10px;
+} 
+
+.big-card .card-img {
+  width: 300px;
+}
+
+.big-card .card-img:hover {
+  width: 295px;
+}
+
+.big-card .card-text {
+  max-height: 384px;
+  overflow: hidden;
+}
+
+.popular-comics img {
+  width: 143px;
+}
+
+.popular-comics img:hover {
+  width: 138px;
+}
+
+@media (max-width: 1199.5px) and (min-width: 992px) {
+  .big-card .card-img {
+    width: 250px;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .big-card .card-img {
+    width: 260px;
+  }
+
+  .popular-comics img {
+      width: 260px;
+  }
+
+  .big-card .card-img:hover, .popular-comics img:hover {
+    width: 255px;
+  }
+
+  .popular .big-card {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .popular .small-card {
+    margin: 0;
+  }
+}
+
+.header-slider .carousel-caption a:hover,
+.popular .card-title a:hover,
+.new-releases .card-title a:hover {
+  color: #d81a24;
+}
