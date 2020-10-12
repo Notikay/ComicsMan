@@ -17,7 +17,7 @@ class AppIndexView(View):
 
         self.header_slider_len = 8
         self.new_rel_len = 8
-        self.pop_rel_len = 7
+        self.favor_rel_len = 7
 
         self.current_datetime = datetime.now()
         self.date = f"{self.current_datetime.strftime('%B')} {self.current_datetime.day}: "
@@ -34,7 +34,7 @@ class AppIndexView(View):
         header_slider = []
         header_slider_list, self.header_slider_len = self.checkComics(self.header_slider_len)
         new_rel, self.new_rel_len = self.checkComics(self.new_rel_len)
-        pop_rel, self.pop_rel_len = self.checkComics(self.pop_rel_len)
+        favor_rel, self.favor_rel_len = self.checkComics(self.favor_rel_len)
 
         for i in range(0, self.header_slider_len, 2):
             if self.header_slider_len % 2 != 0 and i == self.header_slider_len - 1:
@@ -51,7 +51,7 @@ class AppIndexView(View):
                           "comics_list": self.comics,
 
                           "new_rel": new_rel,
-                          "pop_rel": pop_rel,
+                          "favor_rel": favor_rel,
 
                           "date": self.date,
                       })

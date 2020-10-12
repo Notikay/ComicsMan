@@ -111,35 +111,35 @@
 </div>
 {% endblock %}
 
-{% block popular %}
-<div class="popular">
-  <h3>Популярное</h3>
+{% block favorites %}
+<div class="favorites">
+  <h3>Избранное</h3>
   <div class="row">
     <div class="big-card card mx-auto col-md-12 col-lg-6">
       <div class="row justify-content-center no-gutters">
         <div class="col-md-6 col-lg-7">
-          <a href="{{ pop_rel.0.url }}">
-            <img src="{{ pop_rel.0.image.url }}" class="card-img" alt="0">
+          <a href="{{ favor_rel.0.url }}">
+            <img src="{{ favor_rel.0.image.url }}" class="card-img" alt="0">
           </a>
         </div>
         <div class="col-md-6 col-lg-5 d-none d-md-block">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="{{ pop_rel.0.url }}">{{ pop_rel.0.title }}</a>
+              <a href="{{ favor_rel.0.url }}">{{ favor_rel.0.title }}</a>
             </h5>
-            <p class="card-text">{{pop_rel.0.description}}</p>
-            <p class="card-text"><small class="text-muted">{{ pop_rel.0.date }}</small></p>
+            <p class="card-text">{{ favor_rel.0.description }}</p>
+            <p class="card-text"><small class="text-muted">{{ favor_rel.0.date }}</small></p>
           </div>
         </div>
       </div>
     </div>
     <div class="small-card justify-content-center row col-md-12 col-lg-6">
-      {% for pop_comics in pop_rel %}
+      {% for favor_comics in favor_rel %}
         {% if forloop.first %}
         {% else %}
-          <div class="text-center popular-comics col-md-3 col-lg-4 {% if forloop.counter0 > 2 %}d-none d-md-block{% endif %}">
-            <a href="{{ pop_comics.url }}">
-              <img src="{{ pop_comics.image.url }}" class="card-img" alt="{{ forloop.counter0 }}">
+          <div class="text-center favorites-comics col-md-3 col-lg-4 {% if forloop.counter0 > 2 %}d-none d-md-block{% endif %}">
+            <a href="{{ favor_comics.url }}">
+              <img src="{{ favor_comics.image.url }}" class="card-img" alt="{{ forloop.counter0 }}">
             </a>
           </div>
         {% endif %}

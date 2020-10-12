@@ -317,24 +317,24 @@ header {
   background-color: #d81a24;
 }
 
-.popular {
+.favorites {
   margin-top: 70px;
 }
 
-.popular-comics {
+.favorites-comics {
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
-.popular .card {
+.favorites .card {
   margin: 0 auto;
 }
 
-.popular .card-body {
+.favorites .card-body {
   padding: 0;
 }
 
-.popular .card-title a {
+.favorites .card-title a {
   text-decoration: none;
   color: #212529;
   transition: 0.3s linear;
@@ -358,11 +358,11 @@ header {
   overflow: hidden;
 }
 
-.popular-comics img {
+.favorites-comics img {
   width: 143px;
 }
 
-.popular-comics img:hover {
+.favorites-comics img:hover {
   width: 138px;
 }
 
@@ -377,26 +377,26 @@ header {
     width: 260px;
   }
 
-  .popular-comics img {
+  .favorites-comics img {
       width: 260px;
   }
 
-  .big-card .card-img:hover, .popular-comics img:hover {
+  .big-card .card-img:hover, .favorites-comics img:hover {
     width: 255px;
   }
 
-  .popular .big-card {
+  .favorites .big-card {
     padding-left: 0;
     padding-right: 0;
   }
 
-  .popular .small-card {
+  .favorites .small-card {
     margin: 0;
   }
 }
 
 .header-slider .carousel-caption a:hover,
-.popular .card-title a:hover,
+.favorites .card-title a:hover,
 .new-releases .card-title a:hover {
   color: #d81a24;
 }
