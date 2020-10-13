@@ -148,7 +148,7 @@
       </div>
     </div>
   </div>
-  <div class="view-all text-center">
+  <div class="greate-btn text-center">
     <a href="#">Посмотреть всё</a>
   </div>
 </div>
@@ -210,7 +210,29 @@
     </div>
   </div>
 </div>
-<div class="view-all text-center">
+<div class="greate-btn text-center">
   <a href="#">Все новости</a>
+</div>
+{% endblock %}
+
+{% block newsletter %}
+<div class="newsletter-inner row justify-content-center">
+  <div class="col-9 col-sm-12 col-md-8 col-lg-7">
+    <p class="text-center">
+Введите свой адрес электронной почты, чтобы получать все новости,
+обновления о новых релизах, и другую важную информацию.
+    </p>
+    <form class="form-inline justify-content-center">
+      <input type="email" class="col-12 col-sm-7 form-control" id="newsletter-mail" placeholder="Ваш e-mail...">
+      <button type="submit" class="col-12 col-sm-4 btn btn-primary" id="subscribe">Подписаться</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block testimonials %}
+<div class="testimonials-inner"></div>
+<div class="greate-btn text-center">
+  <a href="#">Оставить отзыв</a>
 </div>
 {% endblock %}

@@ -47,10 +47,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
 
-body {
-  font-family: Roboto Slab, serif;
-}
-
+body {font-family: Roboto Slab, serif;}
 
 /*==== Header ====*/
 @media (prefers-reduced-motion: reduce) {
@@ -297,11 +294,11 @@ header {
   }
 }
 
-.view-all {
+.greate-btn {
   margin-top: 2vw;
 }
 
-.view-all a {
+.greate-btn a {
   text-decoration: none;
   color: #d81a24;
   font-size: 14pt;
@@ -312,7 +309,7 @@ header {
   transition: 0.3s linear;
 }
 
-.view-all a:hover {
+.greate-btn a:hover {
   color: #fff;
   background-color: #d81a24;
 }
@@ -397,7 +394,6 @@ header {
 
 .news {
   background-color: #151515;
-  padding: 50px 0;
 }
 
 .news h2 {
@@ -408,7 +404,7 @@ header {
   border-color: #d81a24;
 }
 
-.news .view-all a {
+.news .greate-btn a {
   color: #fff;
 }
 
@@ -423,4 +419,61 @@ header {
 .header-slider .carousel-caption a:hover,
 .card-title a:hover {
   color: #d81a24;
+}
+
+.main section.newsletter {
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/main/newsletter-bg.jpg") no-repeat center top;
+  background-size: cover;
+  padding: 90px 0;
+}
+
+.newsletter hr {
+  border-color: #d81a24; 
+}
+
+.newsletter-inner p {
+  padding-top: 25px;
+}
+
+.newsletter-inner form {
+  padding-top: 30px;
+}
+
+#newsletter-mail {
+  padding: 28px 18px;
+  border: none;
+  background-color: rgba(246, 246, 246, 0.3);
+  color: #fff;
+}
+
+#newsletter-mail:focus {
+  box-shadow: none;
+}
+
+.newsletter input::placeholder {
+  color: #fff;
+}
+
+#subscribe {
+  font-weight: 700;
+  padding: 15px;
+  margin-left: 10px;
+  border-color: #d81a24;
+  background-color: #d81a24;
+  transition: 0.3s linear;
+}
+
+#subscribe:hover {
+  background-color: transparent;
+}
+
+#subscribe:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 575.5px) {
+  #subscribe {
+    margin-left: 0;
+  }
 }
