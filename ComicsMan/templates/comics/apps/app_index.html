@@ -1,4 +1,48 @@
+<!--TODO Инициализировать новости.-->
+<!--TODO Добавить вкладку "Новости" в каталог.-->
+
 {% extends '../index.html' %}
+{% load static %}
+
+{% block header_nav %}
+<div class="header-nav">
+  <nav class="navbar navbar-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-pills text-center">
+        <li class="nav-item active">
+          <a href="#" class="nav-link">Главная</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Каталог
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Новинки</a>
+            <a class="dropdown-item" href="#">Популярное</a>
+            <a class="dropdown-item" href="#">Рекомендации</a>
+            <a class="dropdown-item" href="#">Случайное</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">О нас</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Контакты</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+{% endblock %}
 
 {% block header_slider %}
 <div class="header-slider">
@@ -146,5 +190,36 @@
       {% endfor %}
     </div>
   </div>
+</div>
+{% endblock %}
+
+{% block news %}
+<div class="news-inner">
+  <div class="row no-gutters">
+    <div class="col-md-12 col-lg-6">
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/imcuUriopWA" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <div class="card-body">
+        <h5 class="card-title"><a href="#">Случай Чарльза Декстера Варда</a></h5>
+        <p class="card-text d-none d-sm-block">
+          В психиатрической лечебнице, в день и час таинственного исчезновения одного из пациентов,
+          молодого человека по имени Чарльз Декстер Вард, который был помещён туда родителями за многочисленные
+          физиологические и психические нарушения, неизвестные тогдашней науке.
+          Чарльз имел необычную форму амнезии, он вдруг стал слабо ориентироваться в современной жизни,
+          зато прекрасно разбирался в прошлом. Врачи отмечали, что за время болезни его тело изменилось:
+          в сердечной деятельности появилась загадочная аритмия, исчезли узнаваемые родинки, но на груди
+          появилось странное тёмное пятно, обмен веществ был замедлен, а ткани тела приобрели необычную грубость и рыхлость.
+          Расследованием его случая занялся Маринус Бикнелл Виллет, врач семьи Вардов.</p>
+        <p class="card-text"><strong>Ведущий: </strong>Г.Ф. Лавкрафт</p>
+        <p class="card-text"><small class="text-muted">00.00.0000</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="view-all text-center">
+  <a href="#">Все новости</a>
 </div>
 {% endblock %}
