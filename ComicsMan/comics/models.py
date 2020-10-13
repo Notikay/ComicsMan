@@ -1,5 +1,3 @@
-# TODO Модель для новостей.
-
 from datetime import date
 
 from django.db import models
@@ -131,3 +129,18 @@ class Reviews(models.Model):
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
+
+class News(models.Model):
+    """Новость."""
+    headline = models.CharField("Заголовок", max_length=50)
+    description = models.TextField("Описание", max_length=400)
+    showman = models.CharField("Ведущий", max_length=100)
+    id_video = models.SlugField("ID ролика", max_length=20)
+    date = models.DateField("Дата выхода", default=date.today())
+
+    def __str__(self):
+        return self.headline
+
+    class Meta:
+        verbose_name = "Новость"
+        verbose_name_plural = "Новости"

@@ -1,5 +1,3 @@
-<!--TODO Инициализировать новости.-->
-
 {% extends '../index.html' %}
 {% load static %}
 
@@ -197,23 +195,15 @@
   <div class="row no-gutters">
     <div class="col-md-12 col-lg-6">
       <div class="embed-responsive embed-responsive-4by3">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/imcuUriopWA" allowfullscreen></iframe>
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ news.id_video }}" allowfullscreen></iframe>
       </div>
     </div>
     <div class="col-md-12 col-lg-6">
       <div class="card-body">
-        <h5 class="card-title"><a href="#">Случай Чарльза Декстера Варда</a></h5>
-        <p class="card-text d-none d-sm-block">
-          В психиатрической лечебнице, в день и час таинственного исчезновения одного из пациентов,
-          молодого человека по имени Чарльз Декстер Вард, который был помещён туда родителями за многочисленные
-          физиологические и психические нарушения, неизвестные тогдашней науке.
-          Чарльз имел необычную форму амнезии, он вдруг стал слабо ориентироваться в современной жизни,
-          зато прекрасно разбирался в прошлом. Врачи отмечали, что за время болезни его тело изменилось:
-          в сердечной деятельности появилась загадочная аритмия, исчезли узнаваемые родинки, но на груди
-          появилось странное тёмное пятно, обмен веществ был замедлен, а ткани тела приобрели необычную грубость и рыхлость.
-          Расследованием его случая занялся Маринус Бикнелл Виллет, врач семьи Вардов.</p>
-        <p class="card-text"><strong>Ведущий: </strong>Г.Ф. Лавкрафт</p>
-        <p class="card-text"><small class="text-muted">00.00.0000</small></p>
+        <h5 class="card-title"><a href="#">{{ news.headline }}</a></h5>
+        <p class="card-text d-none d-sm-block">{{ news.description }}</p>
+        <p class="card-text"><strong>Ведущий: </strong>{{ news.showman }}</p>
+        <p class="card-text"><small class="text-muted">{{ news.date }}</small></p>
       </div>
     </div>
   </div>

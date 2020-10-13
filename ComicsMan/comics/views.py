@@ -1,18 +1,19 @@
 # TODO Отдельный список избранного.
-# TODO Инициализировать последнюю новость.
 
 from datetime import datetime
 
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from .models import Comics
+from .models import Comics, News
 
 class AppIndexView(View):
     """Для главной станицы."""
 
     def __init__(self):
         self.comics = Comics.objects.all()
+        self.news = News.objects.last()
+
         self.comics_list = list(self.comics)
         self.comics_len = len(self.comics_list)
 
@@ -55,4 +56,5 @@ class AppIndexView(View):
                           "favor_rel": favor_rel,
 
                           "date": self.date,
+                          "news": self.news,
                       })
