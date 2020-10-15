@@ -477,3 +477,18 @@ header {
     margin-left: 0;
   }
 }
+
+#marvel-logo, #dc-logo {
+  padding: 10px;
+}
+
+.marvel-dc-inner img {
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  transition: 0.3s linear;
+}
+
+.marvel-dc-inner img:hover {
+  box-shadow: none;
+  opacity: 0.7;
+}

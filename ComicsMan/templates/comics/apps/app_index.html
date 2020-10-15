@@ -215,6 +215,23 @@
 </div>
 {% endblock %}
 
+{% block marvel-dc %}
+<div class="marvel-dc-inner">
+  <div class="row justify-content-around">
+    <div class="text-center col-sm-5" id="marvel-logo">
+      <a href="#">
+        <img src="{% static 'comics/img/main/marvel-logo.jpg' %}" class="rounded" alt="marvel">
+      </a>
+    </div>
+    <div class="text-center col-sm-5" id="dc-logo">
+      <a href="#">
+        <img src="{% static 'comics/img/main/dc-logo.jpg' %}" class="rounded" alt="dc">
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
 {% block newsletter %}
 <div class="newsletter-inner row justify-content-center">
   <div class="col-9 col-sm-12 col-md-8 col-lg-7">
