@@ -1,6 +1,4 @@
 <!--TODO Добавить звезды рейтинга к комиксам.-->
-<!--TODO Добавить названия комиксов к отзывам.-->
-<!--TODO Оставить или убрать кнопку "Оставить отзыв".-->
 <!--TODO Сделать footer.-->
 
 {% extends '../index.html' %}
@@ -257,17 +255,23 @@
       {% for review in reviews_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="row justify-content-around">
-            <div class="item col-6">
-              <div class="item-inner mx-auto">
-                <h5>{{ review.0.name }}</h5>
-                <p class="lead">{{ review.0.text }}</p>
+            <div class="item col-5">
+              <h5>{{ review.0.name }}</h5>
+              <div class="item-text mx-auto">
+                <blockquote class="blockquote">
+                  <p class="lead mb-0">"{{ review.0.text }}"</p>
+                  <footer class="blockquote-footer text-right"><cite title="Название источника">{{ review.0.comics }}</cite></footer>
+                </blockquote>
               </div>
             </div>
             {% if review|length == 2 %}
-              <div class="item col-6">
-                <div class="item-inner mx-auto">
-                  <h5>{{ review.1.name }}</h5>
-                  <p class="lead">{{ review.1.text }}</p>
+              <div class="item col-5">
+                <h5>{{ review.1.name }}</h5>
+                <div class="item-text mx-auto">
+                  <blockquote class="blockquote">
+                    <p class="lead mb-0">"{{ review.1.text }}"</p>
+                    <footer class="blockquote-footer text-right"><cite title="Название источника">{{ review.1.comics }}</cite></footer>
+                  </blockquote>
                 </div>
               </div>
             {% endif %}
@@ -288,18 +292,24 @@
       {% for review in reviews_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="item">
-            <div class="item-inner mx-auto">
-              <h5>{{ review.0.name }}</h5>
-              <p>{{ review.0.text }}</p>
+            <h5>{{ review.0.name }}</h5>
+            <div class="item-text mx-auto">
+              <blockquote class="blockquote">
+                <p class="lead mb-0">"{{ review.0.text }}"</p>
+                <footer class="blockquote-footer text-right"><cite title="Название источника">{{ review.0.comics }}</cite></footer>
+              </blockquote>
             </div>
           </div>
         </div>
         {% if review|length == 2 %}
           <div class="carousel-item text-center">
             <div class="item">
-              <div class="item-inner mx-auto">
-                <h5>{{ review.1.name }}</h5>
-                <p>{{ review.1.text }}</p>
+              <h5>{{ review.1.name }}</h5>
+              <div class="item-text mx-auto">
+                <blockquote class="blockquote">
+                  <p class="lead mb-0">"{{ review.1.text }}"</p>
+                  <footer class="blockquote-footer text-right"><cite title="Название источника">{{ review.1.comics }}</cite></footer>
+                </blockquote>
               </div>
             </div>
           </div>
@@ -314,8 +324,5 @@
       </ol>
     </div>
   </div>
-</div>
-<div class="greate-btn text-center">
-  <a href="#">Оставить отзыв</a>
 </div>
 {% endblock %}

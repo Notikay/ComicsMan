@@ -500,6 +500,11 @@ header {
 }
 
 .testimonials-inner p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
   font-size: 10pt;
 }
 
@@ -511,9 +516,10 @@ header {
   background-color: #d81a24;
 }
 
-.item-inner {
+.testimonials-inner .item {
   padding: 10px;
-  background-color: #eee;
-  height: 300px;
-  width: 300px;
+}
+
+.testimonials .item-text {
+  height: 200px;
 }
