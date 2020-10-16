@@ -1,4 +1,7 @@
 <!--TODO Добавить звезды рейтинга к комиксам.-->
+<!--TODO Добавить названия комиксов к отзывам.-->
+<!--TODO Оставить или убрать кнопку "Оставить отзыв".-->
+<!--TODO Сделать footer.-->
 
 {% extends '../index.html' %}
 {% load static %}
@@ -45,7 +48,7 @@
 
 {% block header_slider %}
 <div class="header-slider">
-  <div id="slider-medium" class="carousel slide d-none d-md-block" data-ride="carousel">
+  <div id="header-slider-medium" class="carousel slide d-none d-md-block" data-ride="carousel">
     <div class="carousel-inner">
       {% for slide in header_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
@@ -73,20 +76,20 @@
     <div class="indicators d-none d-md-block">
       <ol class="carousel-indicators">
         {% for slide in header_slider %}
-            <li data-target="#slider-medium" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+            <li data-target="#header-slider-medium" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
         {% endfor %}
       </ol>
     </div>
-    <a class="carousel-control-prev" href="#slider-medium" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#header-slider-medium" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#slider-medium" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#header-slider-medium" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div id="slider-small" class="carousel slide d-md-none" data-ride="carousel">
+  <div id="header-slider-small" class="carousel slide d-md-none" data-ride="carousel">
     <div class="carousel-inner">
       {% for slide in header_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
@@ -106,15 +109,15 @@
     <div class="indicators d-md-none">
       <ol class="carousel-indicators">
         {% for slide in header_slider_len %}
-          <li data-target="#slider-small" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+          <li data-target="#header-slider-small" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
         {% endfor %}
       </ol>
     </div>
-    <a class="carousel-control-prev" href="#slider-small" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#header-slider-small" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#slider-small" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#header-slider-small" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -248,7 +251,70 @@
 {% endblock %}
 
 {% block testimonials %}
-<div class="testimonials-inner"></div>
+<div class="testimonials-inner">
+  <div id="testimonials-slider-medium" class="carousel slide d-none d-md-block" data-ride="carousel">
+    <div class="carousel-inner">
+      {% for review in reviews_slider %}
+        <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
+          <div class="row justify-content-around">
+            <div class="item col-6">
+              <div class="item-inner mx-auto">
+                <h5>{{ review.0.name }}</h5>
+                <p class="lead">{{ review.0.text }}</p>
+              </div>
+            </div>
+            {% if review|length == 2 %}
+              <div class="item col-6">
+                <div class="item-inner mx-auto">
+                  <h5>{{ review.1.name }}</h5>
+                  <p class="lead">{{ review.1.text }}</p>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="indicators d-none d-md-block">
+      <ol class="carousel-indicators">
+        {% for review in reviews_slider %}
+            <li data-target="#testimonials-slider-medium" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+  <div id="testimonials-slider-small" class="carousel slide d-md-none" data-ride="carousel">
+    <div class="carousel-inner">
+      {% for review in reviews_slider %}
+        <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
+          <div class="item">
+            <div class="item-inner mx-auto">
+              <h5>{{ review.0.name }}</h5>
+              <p>{{ review.0.text }}</p>
+            </div>
+          </div>
+        </div>
+        {% if review|length == 2 %}
+          <div class="carousel-item text-center">
+            <div class="item">
+              <div class="item-inner mx-auto">
+                <h5>{{ review.1.name }}</h5>
+                <p>{{ review.1.text }}</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="indicators d-md-none">
+      <ol class="carousel-indicators">
+        {% for slide in reviews_slider_len %}
+          <li data-target="#testimonials-slider-small" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div>
 <div class="greate-btn text-center">
   <a href="#">Оставить отзыв</a>
 </div>

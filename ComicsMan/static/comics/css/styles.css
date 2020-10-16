@@ -492,3 +492,28 @@ header {
   box-shadow: none;
   opacity: 0.7;
 }
+
+.testimonials-inner h5 {
+  font-size: 14pt;
+  font-weight: 700;
+  color: #d81a24;
+}
+
+.testimonials-inner p {
+  font-size: 10pt;
+}
+
+.testimonials-inner .indicators {
+  padding-top: 30px;
+}
+
+.testimonials-inner .indicators li {
+  background-color: #d81a24;
+}
+
+.item-inner {
+  padding: 10px;
+  background-color: #eee;
+  height: 300px;
+  width: 300px;
+}
