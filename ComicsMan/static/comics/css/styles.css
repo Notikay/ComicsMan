@@ -49,6 +49,7 @@
 
 body {font-family: Roboto Slab, serif;}
 
+
 /*==== Header ====*/
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
@@ -192,9 +193,8 @@ header {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
 }
 
-/*==== Main ====*/
 
-/* Filters */
+/*==== Main ====*/
 .main section {
   padding: 50px 0;
 }
@@ -214,6 +214,7 @@ header {
   margin-top: 30px;
 }
 
+/* Filters */
 .filters h3 {
   color: #d81a24;
   font-size: 24pt;
@@ -392,6 +393,7 @@ header {
   }
 }
 
+/* News */
 .news {
   background-color: #151515;
 }
@@ -417,10 +419,12 @@ header {
 }
 
 .header-slider .carousel-caption a:hover,
-.card-title a:hover {
+.card-title a:hover,
+.footer-copyright a:hover {
   color: #d81a24;
 }
 
+/* Newsletter */
 .main section.newsletter {
   color: #fff;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/main/newsletter-bg.jpg") no-repeat center top;
@@ -478,6 +482,7 @@ header {
   }
 }
 
+/* MARVEL/DC */
 #marvel-logo, #dc-logo {
   padding: 10px;
 }
@@ -493,6 +498,7 @@ header {
   opacity: 0.7;
 }
 
+/* Testimonials */
 .testimonials-inner h5 {
   font-size: 14pt;
   font-weight: 700;
@@ -522,4 +528,68 @@ header {
 
 .testimonials .item-text {
   height: 200px;
+}
+
+
+/*==== Footer ====*/
+footer {
+  background-color: #151515;
+  padding: 55px 0;
+}
+
+/* Social Network */
+.social-network {
+  padding-top: 20px;
+}
+
+.social-network li {
+  float: left;
+  list-style-type: none;
+}
+
+.social-network ul {
+  padding: 0;
+}
+
+.social {display: inline-block;}
+
+.social a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 10px 10px 0;
+  text-align: center;
+  color: #000;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
+}
+
+.social a:hover {color: #fff;}
+
+.social svg {
+  margin-top: 3px;
+  width: 24px;
+  height: 24px;
+}
+
+.github a:hover {background: #191919;}
+.instagram a:hover {background: #b5338e;}
+.telegram a:hover {background: #249bd7;}
+.vk a:hover {background: #4a76a8;}
+.youtube a:hover {background: #c4302b;}
+
+/* Copyright */
+.footer-copyright {
+  color: #b7b7b7;
+  padding-top: 80px;
+  font-size: 12pt;
+  font-weight: 200;
+}
+
+.footer-copyright a {
+  color: #b7b7b7;
+  text-decoration: none;
+  transition: 0.3s linear;
 }

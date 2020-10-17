@@ -17,7 +17,7 @@
     <title>ComicsMan</title>
   </head>
   <body>
-    <header>
+    <header >
       <div class="header">
         <div class="container">
           {% block header_nav %} Навигация {% endblock %}
@@ -68,7 +68,8 @@
     <footer>
       <div class="footer">
          <div class="container">
-           <a href="https://ru.freepik.com/photos/background">Background фото создан(а) freepik - ru.freepik.com</a>
+           {% block footer_content %}{% endblock %}
+           {% block footer_copyright %}{% endblock %}
          </div>
       </div>
     </footer>
