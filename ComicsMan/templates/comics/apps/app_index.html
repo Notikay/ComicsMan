@@ -7,7 +7,7 @@
 <div class="header-nav">
   <nav class="navbar navbar-dark navbar-expand-lg">
     <a class="navbar-brand" href="#">
-      <img src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
+      <img class="img-brand" src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,10 +22,10 @@
             Каталог
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Новинки</a>
-            <a class="dropdown-item" href="#">Популярное</a>
-            <a class="dropdown-item" href="#">Рекомендации</a>
-            <a class="dropdown-item" href="#">Случайное</a>
+            <a class="a dropdown-item" href="#">Новинки</a>
+            <a class="a dropdown-item" href="#">Популярное</a>
+            <a class="a dropdown-item" href="#">Рекомендации</a>
+            <a class="a dropdown-item" href="#">Случайное</a>
           </div>
         </li>
         <li class="nav-item">
@@ -43,25 +43,25 @@
 </div>
 {% endblock %}
 
-{% block header_slider %}
-<div class="header-slider">
+{% block comics_slider %}
+<div class="comics-slider">
   <div class="carousel slide d-none d-md-block" id="header-slider-medium" data-ride="carousel">
     <div class="carousel-inner">
       {% for slide in header_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="row justify-content-around">
             <div class="item">
-              <a href="{{ slide.0.url }}"><img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
+              <a href="{{ slide.0.url }}"><img class="cover-img" src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
               <div class="carousel-caption d-none d-md-block">
-                <a href="{{ slide.0.url }}"><h5>{{ slide.0.title }}</h5></a>
-                <p>{{ slide.0.publisher.all.0 }}, {{ slide.0.country }}, {{ slide.0.date }}, {{ slide.0.genre.all.0 }}</p>
+                <h5 class="comics-slider-title hide-text"><a class="a" href="{{ slide.0.url }}">{{ slide.0.title }}</a></h5>
+                <p class="comics-slider-desc hide-text">{{ slide.0.publisher.all.0 }}, {{ slide.0.country }}, {{ slide.0.date }}, {{ slide.0.genre.all.0 }}</p>
               </div>
             </div>
             {% if slide|length == 2 %}
               <div class="item">
-                <a href="{{ slide.1.url }}"><img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
+                <a href="{{ slide.1.url }}"><img class="cover-img" src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
                 <div class="carousel-caption d-none d-md-block">
-                  <h5><a href="{{ slide.1.url }}">{{ slide.1.title }}</a></h5>
+                  <h5><a class="a" href="{{ slide.1.url }}">{{ slide.1.title }}</a></h5>
                   <p>{{ slide.1.publisher.all.0 }}, {{ slide.1.country }}, {{ slide.1.date }}, {{ slide.1.genre.all.0 }}</p>
                 </div>
               </div>
@@ -91,13 +91,13 @@
       {% for slide in header_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="item">
-            <a href="{{ slide.0.url }}"><img src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
+            <a href="{{ slide.0.url }}"><img class="cover-img" src="{{ slide.0.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
           </div>
         </div>
         {% if slide|length == 2 %}
           <div class="carousel-item text-center">
             <div class="item">
-              <a href="{{ slide.1.url }}"><img src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
+              <a href="{{ slide.1.url }}"><img class="cover-img" src="{{ slide.1.image.url }}" alt="{{ forloop.counter0 }} slider item"></a>
             </div>
           </div>
         {% endif %}
@@ -123,23 +123,26 @@
 {% endblock %}
 
 {% block new_releases %}
-<div class="new-releases">
-  <h3>{{ date }}Новое</h3>
-  <div class="card-deck">
+<div class="new-releases section-inner">
+  <h3 class="section-inner-headline">{{ date }}Новое</h3>
+  <div class="comics-display card-deck">
     <div class="container">
       <div class="row d-flex justify-content-center row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
         {% for new_comics in new_rel %}
-          <div class="col new-comics {% if forloop.counter0 > 2 %}d-none {% if forloop.counter0 < 6 %}d-md-block {% else %}d-xl-block{% endif %}{% endif %}">
-            <div class="card mx-auto">
-              <a href="{{ new_comics.url }}">
-                <img class="card-img-top" src="{{ new_comics.image.url }}" alt="{{ forloop.counter0 }} new comics">
-              </a>
-              <div class="card-body d-flex justify-content-center">
-                  <h5 class="card-title text-center">
-                    <a href="{{ new_comics.url }}">{{ new_comics.title }}</a>
+          <div class="new-comics col {% if forloop.counter0 > 2 %}d-none {% if forloop.counter0 < 6 %}d-md-block {% else %}d-xl-block{% endif %}{% endif %}">
+            <div class="comics card mx-auto">
+              <div class="comics-img text-center">
+                <a href="{{ new_comics.url }}">
+                  <img class="cover-img card-img-top" src="{{ new_comics.image.url }}" alt="{{ forloop.counter0 }} new comics">
+                </a>
+              </div>
+              <div class="comics-body card-body d-flex justify-content-center">
+                  <h5 class="comics-title card-title text-center">
+                    <a class="a" href="{{ new_comics.url }}">{{ new_comics.title }}</a>
                   </h5>
               </div>
-              <div class="card-footer text-center">
+              <div class="comics-footer card-footer text-center">
+                <hr class="comics-footer-hr">
                 <small class="text-muted">{{ new_comics.date }}</small>
               </div>
             </div>
@@ -148,31 +151,31 @@
       </div>
     </div>
   </div>
-  <div class="greate-btn text-center">
-    <a href="#">Посмотреть всё</a>
+  <div class="click-btn">
+    <div class="form-btn">
+      <a class="a-btn" href="#">Посмотреть всё</a>
+    </div>
   </div>
 </div>
 {% endblock %}
 
 {% block favorites %}
-<div class="favorites">
-  <h3>Избранное</h3>
+<div class="favorites section-inner">
+  <h3 class="section-inner-headline">Избранное</h3>
   <div class="row">
-    <div class="big-card card mx-auto col-md-12 col-lg-6">
-      <div class="row justify-content-center no-gutters">
-        <div class="col-md-6 col-lg-7">
+    <div class="big-card comics card mx-auto col-md-12 col-lg-6">
+      <div class="row no-gutters">
+        <div class="comics-img col-md-6 col-lg-7 text-center">
           <a href="{{ favor_rel.0.url }}">
-            <img class="card-img" src="{{ favor_rel.0.image.url }}" alt="0 new comics">
+            <img class="cover-img card-img" src="{{ favor_rel.0.image.url }}" alt="0 new comics">
           </a>
         </div>
-        <div class="col-md-6 col-lg-5 d-none d-md-block">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="{{ favor_rel.0.url }}">{{ favor_rel.0.title }}</a>
-            </h5>
-            <p class="card-text">{{ favor_rel.0.description }}</p>
-            <p class="card-text"><small class="text-muted">{{ favor_rel.0.date }}</small></p>
-          </div>
+        <div class="comics-body card-body col-md-6 col-lg-5 d-none d-md-block">
+          <h5 class="comics-title card-title">
+            <a class="a" href="{{ favor_rel.0.url }}">{{ favor_rel.0.title }}</a>
+          </h5>
+          <p class="hide-text card-text">{{ favor_rel.0.description }}</p>
+          <p class="card-text"><small class="text-muted">{{ favor_rel.0.date }}</small></p>
         </div>
       </div>
     </div>
@@ -180,10 +183,12 @@
       {% for favor_comics in favor_rel %}
         {% if forloop.first %}
         {% else %}
-          <div class="text-center favorites-comics col-md-3 col-lg-4 {% if forloop.counter0 > 2 %}d-none d-md-block{% endif %}">
-            <a href="{{ favor_comics.url }}">
-              <img class="card-img" src="{{ favor_comics.image.url }}" alt="{{ forloop.counter0 }} favorite comics">
-            </a>
+          <div class="comics card col-md-3 col-lg-4 {% if forloop.counter0 > 2 %}d-none d-md-block{% endif %}">
+            <div class="comics-img text-center">
+              <a href="{{ favor_comics.url }}">
+                <img class="cover-img card-img" src="{{ favor_comics.image.url }}" alt="{{ forloop.counter0 }} favorite comics">
+              </a>
+            </div>
           </div>
         {% endif %}
       {% endfor %}
@@ -193,7 +198,7 @@
 {% endblock %}
 
 {% block news %}
-<div class="news-inner">
+<div class="section-inner">
   <div class="row no-gutters">
     <div class="col-md-12 col-lg-6">
       <div class="embed-responsive embed-responsive-4by3">
@@ -202,28 +207,30 @@
     </div>
     <div class="col-md-12 col-lg-6">
       <div class="card-body">
-        <h5 class="card-title"><a href="#">{{ news.headline }}</a></h5>
+        <h5 class="card-title"><a class="a" href="#">{{ news.headline }}</a></h5>
         <p class="card-text d-none d-sm-block">{{ news.description }}</p>
         <p class="card-text"><strong>Ведущий: </strong>{{ news.showman }}</p>
         <p class="card-text"><small class="text-muted">{{ news.date }}</small></p>
       </div>
     </div>
   </div>
-</div>
-<div class="greate-btn text-center">
-  <a href="#">Все новости</a>
+  <div class="click-btn">
+    <div class="form-btn">
+      <a class="a-btn" href="#">Все новости</a>
+    </div>
+  </div>
 </div>
 {% endblock %}
 
 {% block marvel-dc %}
-<div class="marvel-dc-inner">
+<div class="section-inner">
   <div class="row justify-content-around">
-    <div class="text-center col-sm-5" id="marvel-logo">
+    <div class="click-img text-center col-7 col-sm-5">
       <a href="#">
         <img class="rounded" src="{% static 'comics/img/main/marvel-logo.jpg' %}" alt="marvel logo">
       </a>
     </div>
-    <div class="text-center col-sm-5" id="dc-logo">
+    <div class="click-img text-center col-7 col-sm-5">
       <a href="#">
         <img class="rounded" src="{% static 'comics/img/main/dc-logo.jpg' %}" alt="dc logo">
       </a>
@@ -233,43 +240,47 @@
 {% endblock %}
 
 {% block newsletter %}
-<div class="newsletter-inner row justify-content-center">
+<div class="section-inner row justify-content-center">
   <div class="col-9 col-sm-12 col-md-8 col-lg-7">
     <p class="text-center">
       Введите свой адрес электронной почты, чтобы получать все новости,
       обновления о новых релизах, и другую важную информацию.
     </p>
     <form class="form-inline justify-content-center">
-      <input class="col-12 col-sm-7 form-control" id="newsletter-mail" type="email" placeholder="Ваш e-mail...">
-      <button class="col-12 col-sm-4 btn btn-primary" id="subscribe" type="submit">Подписаться</button>
+      <input class="input-form col-12 col-sm-7" type="email" placeholder="Ваш e-mail...">
+      <button class="btn-form col-12 col-sm-4" type="submit">Подписаться</button>
     </form>
   </div>
 </div>
 {% endblock %}
 
 {% block testimonials %}
-<div class="testimonials-inner">
+<div class="section-inner">
   <div class="carousel slide d-none d-md-block" id="testimonials-slider-medium" data-ride="carousel">
     <div class="carousel-inner">
       {% for review in reviews_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="row justify-content-around">
             <div class="item col-5">
-              <h5>{{ review.0.name }}</h5>
+              <h5 class="review-name">{{ review.0.name }}</h5>
               <div class="item-text mx-auto">
                 <blockquote class="blockquote">
-                  <p class="lead mb-0">"{{ review.0.text }}"</p>
-                  <cite class="blockquote-footer text-right" title="Название источника">{{ review.0.comics }}</cite>
+                  <p class="hide-text lead mb-0">"{{ review.0.text }}"</p>
+                  <cite class="blockquote-footer text-right" title="Название источника">
+                    <a class="a" href="{{ review.0.comics.url }}">{{ review.0.comics }}</a>
+                  </cite>
                 </blockquote>
               </div>
             </div>
             {% if review|length == 2 %}
               <div class="item col-5">
-                <h5>{{ review.1.name }}</h5>
+                <h5 class="review-name">{{ review.1.name }}</h5>
                 <div class="item-text mx-auto">
                   <blockquote class="blockquote">
-                    <p class="lead mb-0">"{{ review.1.text }}"</p>
-                    <cite class="blockquote-footer text-right" title="Название источника">{{ review.1.comics }}</cite>
+                    <p class="hide-text lead mb-0">"{{ review.1.text }}"</p>
+                    <cite class="blockquote-footer text-right" title="Название источника">
+                      <a class="a" href="{{ review.1.comics.url }}">{{ review.1.comics }}</a>
+                    </cite>
                   </blockquote>
                 </div>
               </div>
@@ -291,11 +302,13 @@
       {% for review in reviews_slider %}
         <div class="carousel-item text-center {% if forloop.first %}active{% endif %}">
           <div class="item">
-            <h5>{{ review.0.name }}</h5>
+            <h5 class="review-name">{{ review.0.name }}</h5>
             <div class="item-text mx-auto">
               <blockquote class="blockquote">
-                <p class="lead mb-0">"{{ review.0.text }}"</p>
-                <cite class="blockquote-footer text-right" title="Название источника">{{ review.0.comics }}</cite>
+                <p class="hide-text lead mb-0">"{{ review.0.text }}"</p>
+                <cite class="blockquote-footer text-right" title="Название источника">
+                  <a class="a" href="{{ review.0.comics.url }}">{{ review.0.comics }}</a>
+                </cite>
               </blockquote>
             </div>
           </div>
@@ -303,11 +316,13 @@
         {% if review|length == 2 %}
           <div class="carousel-item text-center">
             <div class="item">
-              <h5>{{ review.1.name }}</h5>
+              <h5 class="review-name">{{ review.1.name }}</h5>
               <div class="item-text mx-auto">
                 <blockquote class="blockquote">
-                  <p class="lead mb-0">"{{ review.1.text }}"</p>
-                  <cite class="blockquote-footer text-right" title="Название источника">{{ review.1.comics }}</cite>
+                  <p class="hide-text lead mb-0">"{{ review.1.text }}"</p>
+                  <cite class="blockquote-footer text-right" title="Название источника">
+                    <a class="a" href="{{ review.1.comics.url }}">{{ review.1.comics }}</a>
+                  </cite>
                 </blockquote>
               </div>
             </div>
@@ -331,10 +346,10 @@
   <div class="row">
     <div class="footer-brand text-center col-12">
       <a class="navbar-brand" href="#">
-        <img src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
+        <img class="img-brand" src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
       </a>
     </div>
-    <div class="social-network mx-auto">
+    <div class="social-networks mx-auto">
       <ul>
         <li>
           <div class="social github">
@@ -387,9 +402,9 @@
 </div>
 {% endblock %}
 {% block footer_copyright %}
-<div class="footer-copyright text-center">
-  <a href="//ru.freepik.com/photos/background">Background фото создан(а) freepik - ru.freepik.com</a>
-  <p class="copyright">© 2020 Библиотека комиксов ComicsMan. <a href="#">Карта сайта</a>.</p>
+<div class="copyright text-center">
+  <a class="a" href="//ru.freepik.com/photos/background">Background фото создан(а) freepik - ru.freepik.com</a>
+  <p>© 2020 Библиотека комиксов ComicsMan. <a class="a" href="#">Карта сайта</a>.</p>
   <p>
     <a href="//jigsaw.w3.org/css-validator/check/referer">
       <img class="w3-css-validation" src="//jigsaw.w3.org/css-validator/images/vcss" alt="Правильный CSS!" />

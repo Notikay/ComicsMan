@@ -21,7 +21,7 @@
       <div class="header">
         <div class="container">
           {% block header_nav %} Навигация {% endblock %}
-          {% block header_slider %} Слайдер {% endblock %}
+          {% block comics_slider %} Слайдер {% endblock %}
         </div>
       </div>
     </header>
@@ -29,37 +29,37 @@
       <div class="main">
         <section class="filters">
           <div class="container">
-            <h2>Что почитать?</h2>
-            <hr>
+            <h2 class="section-headline">Что почитать?</h2>
+            <hr class="hr">
             {% block new_releases %} Новые релизы {% endblock %}
             {% block favorites %} Избранное {% endblock %}
           </div>
         </section>
         <section class="news">
           <div class="container">
-            <h2>Новости</h2>
-            <hr>
+            <h2 class="section-headline">Новости</h2>
+            <hr class="hr">
             {% block news %} Новость дня {% endblock %}
           </div>
         </section>
         <section class="marvel-dc">
           <div class="container">
-            <h2>Выбор за тобой!</h2>
-            <hr>
+            <h2 class="section-headline">Выбор за тобой!</h2>
+            <hr class="hr">
             {% block marvel-dc %}MARVEL/DC{% endblock %}
           </div>
         </section>
         <section class="newsletter">
           <div class="container">
-            <h2>Новостная рассылка</h2>
-            <hr>
+            <h2 class="section-headline">Новостная рассылка</h2>
+            <hr class="hr">
             {% block newsletter %} Подписаться {% endblock %}
           </div>
         </section>
         <section class="testimonials">
           <div class="container">
-            <h2>Отзывы</h2>
-            <hr>
+            <h2 class="section-headline">Отзывы</h2>
+            <hr class="hr">
             {% block testimonials %} 5 Тони Старков из 5! {% endblock %}
           </div>
         </section>

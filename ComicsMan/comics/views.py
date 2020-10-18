@@ -1,4 +1,4 @@
-# TODO Отдельный список избранного.
+# TODO: Создать отдельный список избранного.
 
 from datetime import datetime
 
