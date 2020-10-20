@@ -1,7 +1,7 @@
 /*
 ==== CSS Navigation ====
 1.Header
-(Слайдер комиксов)
+(Навигация, Слайдер комиксов)
 
 2.Main
 (Новые релизы, Избранное, Новости, Подписка, Отзывы)
@@ -17,9 +17,19 @@
   background-size: 100% 100%;
 }
 
+/* Навигация */
+.header .navbar {
+  padding-top: 30px;
+
+  transition: .3s linear;
+}
+
+@media (max-width: 314px) {
+  .header .navbar-brand { width: 70%; }
+}
 
 /* Слайдер комиксов */
-.header .comics-slider { padding-top: 50px; }
+.header .comics-slider { padding-top: 135px; }
 
 .comics-slider-title.hide-text { -webkit-line-clamp: 1; }
 

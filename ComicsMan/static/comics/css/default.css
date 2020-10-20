@@ -17,6 +17,7 @@
 16.Соц сети
 17.Авторские права
 18.Валидация CSS
+19.Звезды рейтинга
 */
 
 
@@ -84,8 +85,6 @@ body {font-family: Roboto Slab, serif;}
 /* 4.Черта */
 .hr {
   width: 100px;
-  margin-top: 30px;
-  margin-bottom: 30px;
 
   border-top: none;
   border-bottom: 3px solid #b7b7b7;
@@ -140,6 +139,10 @@ body {font-family: Roboto Slab, serif;}
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link { background-color: #d81a24; }
 
+.navbar .navbar-nav .nav-link, 
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link:hover { color: #fff; }
+
 .nav-link {
   margin: 0 10px;
   
@@ -161,10 +164,6 @@ body {font-family: Roboto Slab, serif;}
 
 
 /* 9.Бургер */
-.navbar .navbar-nav .nav-link, 
-.navbar .navbar-nav .nav-link:focus,
-.navbar .navbar-nav .nav-link:hover { color: #fff; }
-
 .navbar .navbar-toggler {
   color: #fff;
 
@@ -175,38 +174,19 @@ body {font-family: Roboto Slab, serif;}
 .navbar .navbar-toggler-icon { background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e) }
 
 @media (max-width: 991px) {
-  .navbar-nav {
-    position: fixed;
-    right: 0;
+  .navbar { background-color: #151515; }
 
-    height: 100%;
-    width: 160px;
+  .nav-pills .nav-link { border-radius: unset; }
 
-    background-color: #151515;
-  }
-  
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1030;
+  .dropdown-menu {
+  	text-align: center;
 
-    background-color: #151515;
-  }
-
-  .nav-pills .nav-link {
-    margin-left: unset;
-    margin-right: unset;
-
-    border-radius: unset;
+  	border: none;
   }
 }
 
 @media (max-width: 314px) {
-  .header-nav .navbar-brand { width: 70%; }
-
-  .img-brand { width: 100%; }
+	.img-brand { width: 100%; }
 }
 
 
@@ -368,38 +348,13 @@ body {font-family: Roboto Slab, serif;}
 
 
 /* 16.Соц сети  */
-.social-networks ul { padding: 0; }
+.social-networks { padding: 0; }
 
-.social { display: inline-block; }
+.social-networks ul { display: inline-block; }
 
-.social a {
-  display: block;
-  height: 32px;
-  width: 32px;
-  margin: 0 10px 10px 0;
-  
-  text-align: center;
-  color: #000;
-  
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .15), inset 0 0 50px rgba(0, 0, 0, .1);
-}
+.social-networks .a { color: #b7b7b7; }
 
-.social a:hover { color: #fff; }
-
-.social svg {
-  height: 24px;
-  width: 24px;
-  margin-top: 3px;
-}
-
-.github a:hover { background: #191919; }
-.instagram a:hover { background: #b5338e; }
-.telegram a:hover { background: #249bd7; }
-.vk a:hover { background: #4a76a8; }
-.youtube a:hover { background: #c4302b; }
+.social-networks i { margin: 0 5px; }
 
 
 /* 17.Авторские права */
@@ -419,3 +374,13 @@ body {font-family: Roboto Slab, serif;}
   
   border:0;
 }
+
+/* 19.Звезды рейтинга */
+.stars {
+	margin: 0;
+	padding: 0;
+}
+
+.stars .a { color: #151515 }
+
+.stars li { display: inline-block; }
