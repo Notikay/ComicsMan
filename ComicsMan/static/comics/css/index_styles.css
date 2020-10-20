@@ -1,0 +1,186 @@
+/*
+==== CSS Navigation ====
+1.Header
+(Слайдер комиксов)
+
+2.Main
+(Новые релизы, Избранное, Новости, Подписка, Отзывы)
+
+3.Footer
+(Контент)
+*/
+
+
+/*==== 1.Header ====*/
+.header {
+  background: url(../img/header/bg.jpg) no-repeat bottom;
+  background-size: 100% 100%;
+}
+
+
+/* Слайдер комиксов */
+.header .comics-slider { padding-top: 50px; }
+
+.comics-slider-title.hide-text { -webkit-line-clamp: 1; }
+
+.comics-slider-desc.hide-text { -webkit-line-clamp: 2; }
+
+.comics-slider .a { color: #fff; }
+
+.comics-slider .item {
+  transition: .3s linear;
+  opacity: .6;
+}
+
+.comics-slider .item:hover { opacity: 1; }
+
+.comics-slider .carousel-caption {
+  position: static;
+  
+  height: 100%;
+  width: 300px;
+  margin: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  background-color: #000;
+}
+
+.comics-slider .carousel-indicators { position: unset; }
+
+
+
+/*==== 2.Main ====*/
+/* Новые релизы */
+.new-releases { padding-top: 0px; }
+
+.new-releases .comics-title { margin-bottom: 0; }
+
+.new-releases .cover-img { width: 260px; }
+.new-releases .cover-img:hover { width: 255px; }
+
+.new-comics { padding: 10px 15px; }
+
+
+/* Избранное */
+.small-card .comics { padding: 10px 15px 20px; }
+
+.small-card .cover-img { width: 143px; }
+
+.small-card .cover-img:hover { width: 138px; }
+
+.big-card { 
+  margin: 0 auto;
+  padding: 0;
+}
+
+.big-card .row {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.big-card .comics { padding: 10px 15px; }
+
+.big-card .cover-img:hover { width: 295px; }
+
+.big-card .comics-body { padding: 0; }
+
+.big-card .comics-title { font-size: 1.25rem; }
+
+.big-card .comics-body .hide-text { -webkit-line-clamp: 16; }
+
+@media (max-width: 1199.5px) and (min-width: 992px) {
+  .big-card .cover-img { width: 250px; }
+
+  .big-card .cover-img:hover { width: 245px; }
+
+  .big-card .comics-body .hide-text { -webkit-line-clamp: 12; }
+}
+
+@media (max-width: 767.5px) {
+  .big-card .cover-img,
+  .small-card .cover-img { width: 260px; }
+
+  .big-card .cover-img:hover,
+  .small-card .cover-img:hover { width: 255px; }
+
+  .small-card { margin: 0; }
+}
+
+
+/* Новости */
+.news { background-color: #151515; }
+
+.news .hr { border-color: #d81a24; }
+
+.news,
+.news .a,
+.news .a-btn { color: #fff; }
+
+@media (min-width: 992px) {
+  .news .card-body { padding-top: 0; }
+}
+
+
+/* Подписка */
+.main .newsletter {
+  padding: 90px 0;
+  
+  color: #fff;
+  
+  background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/main/newsletter-bg.jpg) no-repeat center top;
+  background-size: cover;
+}
+
+.newsletter .hr { border-color: #d81a24; }
+
+.newsletter p { padding-top: 25px; }
+
+.newsletter form { padding-top: 30px; }
+
+.newsletter button { margin-left: 10px; }
+
+@media (max-width: 575.5px) {
+  .newsletter button {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+
+/* Отзывы */
+.testimonials .review-name {
+  font-size: 14pt;
+  font-weight: 700;
+  color: #d81a24;
+}
+
+.testimonials .hide-text {
+  font-size: 10pt;
+  
+  -webkit-line-clamp: 8;
+}
+
+.testimonials .a { color: #6c757d; }
+
+.testimonials .indicators li { background-color: #d81a24; }
+
+.testimonials .item { padding: 10px; }
+
+.testimonials .item-text { height: 200px; }
+
+
+
+/*==== 3.Footer ====*/
+.footer { background-color: #151515; }
+
+
+/* Контент */
+.social-networks { padding-top: 20px; }
+
+.social-networks li {
+  float: left;
+  list-style-type: none;
+}
+
+.footer .copyright { padding-top: 80px; }
