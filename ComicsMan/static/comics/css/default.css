@@ -18,6 +18,7 @@
 17.Авторские права
 18.Валидация CSS
 19.Звезды рейтинга
+20.Кнопка прокрутки вверх
 */
 
 
@@ -280,13 +281,13 @@ body {font-family: Roboto Slab, serif;}
 /* 14.Слайдер */
 .indicators { padding-top: 30px; }
 
-@media (prefers-reduced-motion: reduce) {
+/*@media (prefers-reduced-motion: reduce) {
   .carousel-item {
     transition: -webkit-transform .6s ease-in-out !important;
     transition: transform .6s ease-in-out !important;
     transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out !important;
   }
-}
+}*/
 
 
 /* 15.Комиксы */
@@ -384,3 +385,30 @@ body {font-family: Roboto Slab, serif;}
 .stars .a { color: #151515 }
 
 .stars li { display: inline-block; }
+
+
+/* 20.Кнопка прокрутки вверх */
+#btn-go-top {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 100px;
+
+  width: 60px;
+  height: 60px;
+
+  font-size: 20pt;
+  text-align: center;
+  color: #fff;
+
+  display: none;
+  background-color: #d81a24;
+  border: none;
+  border-radius: 50px;
+
+  transition: .3s linear;
+}
+
+#btn-go-top i { margin-top: 15px; }
+
+#btn-go-top:hover { background-color: #322f2f; }
