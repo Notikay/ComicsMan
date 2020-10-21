@@ -10,8 +10,13 @@ Place the parent directory on the web server.
 
 ### Prerequisites
 #### local
-- Django v3.1.1 or higher
-- Bootstrap v4.5.2 or higher
+- Django v3.1.1
+- Bootstrap v4.5.2
+- Font Awesome v4.7.0
+- Popper v1.16.1
+- jQuery v3.5.1 (Don't use the slim version)
+
+Use these versions or higher!
 
 ## Author
 Made by Notikay, Russia.
