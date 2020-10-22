@@ -5,7 +5,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from .models import Comics, News, Reviews
+from .models import Comics, News, Reviews, Raiting
 
 class AppIndexView(View):
     """Для главной станицы."""
@@ -14,6 +14,7 @@ class AppIndexView(View):
         self.reviews = Reviews.objects.all()
         self.comics = Comics.objects.all()
         self.news = News.objects.last()
+        self.raiting = Raiting.objects.all()
 
         self.comics_list = list(self.comics)
         self.comics_len = len(self.comics_list)
