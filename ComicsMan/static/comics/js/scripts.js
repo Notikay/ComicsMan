@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$(window).on('load', function () {
 		$('.preloader').fadeOut().end().delay(400).fadeOut('slow');
-		$('body, html').animate({scrollTop: 0}, 0);
+		$('body, html').animate({scrollTop: 0}, 200);
 	});
 
 	$(window).on("scroll", function() {

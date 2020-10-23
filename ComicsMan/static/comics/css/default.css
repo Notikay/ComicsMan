@@ -383,9 +383,13 @@ body {font-family: Roboto Slab, serif;}
 	padding: 0;
 }
 
-.stars .a { color: #151515 }
+.stars .active { color:  #d81a24 }
 
-.stars li { display: inline-block; }
+.stars li {
+	display: inline-block;
+
+	color: #151515;
+}
 
 
 /* 20.Кнопка прокрутки вверх */
@@ -410,7 +414,7 @@ body {font-family: Roboto Slab, serif;}
   transition: .3s linear;
 }
 
-#btn-go-top i { margin-top: 15px; }
+#btn-go-top i { 	margin-top: 15px; }
 
 #btn-go-top:hover { background-color: #322f2f; }
 

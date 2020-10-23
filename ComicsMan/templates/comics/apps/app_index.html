@@ -1,4 +1,5 @@
-<!-- TODO: Пзрописать логику звезд рейтинга. -->
+<!-- TODO: Переписать логику звёзд рейтинга. -->
+<!-- TODO: Вынести звёзды рейтинга в отдельный блок. -->
 
 {% extends '../index.html' %}
 {% load static %}
@@ -144,11 +145,19 @@
               <div class="comics-footer card-footer text-center">
                 <hr class="comics-footer-hr">
                 <ul class="stars">
-                  <li><a class="a" href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
-                  <li><a class="a" href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
-                  <li><a class="a" href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
-                  <li><a class="a" href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
-                  <li><a class="a" href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+                  {% for key, value in rating_dict.items %}
+                    {% if new_comics.title == key%}
+                      {% for star in stars %}
+                        {% if value.2 == 0 %}
+                          <li><span class="fa fa-star" aria-hidden="true"></span></li>
+                        {% elif forloop.counter <= value.2 %}
+                          <li><span class="active fa fa-star" aria-hidden="true"></span></li>
+                        {% else %}
+                          <li><span class="fa fa-star" aria-hidden="true"></span></li>
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
                 </ul>
                 <hr class="comics-footer-hr">
                 <small class="text-muted">{{ new_comics.date }}</small>
@@ -184,11 +193,19 @@
           </h5>
           <p class="hide-text card-text">{{ favor_rel.0.description }}</p>
           <ul class="stars">
-            <li><a class="a" href="#"><span class="fa fa-star fa-2x" aria-hidden="true"></span></a></li>
-            <li><a class="a" href="#"><span class="fa fa-star fa-2x" aria-hidden="true"></span></a></li>
-            <li><a class="a" href="#"><span class="fa fa-star fa-2x" aria-hidden="true"></span></a></li>
-            <li><a class="a" href="#"><span class="fa fa-star fa-2x" aria-hidden="true"></span></a></li>
-            <li><a class="a" href="#"><span class="fa fa-star fa-2x" aria-hidden="true"></span></a></li>
+            {% for key, value in rating_dict.items %}
+              {% if favor_rel.0.title == key%}
+                {% for star in stars %}
+                  {% if value.2 == 0 %}
+                    <li><span class="fa fa-star fa-2x" aria-hidden="true"></span></li>
+                  {% elif forloop.counter <= value.2 %}
+                    <li><span class="active fa fa-star fa-2x" aria-hidden="true"></span></li>
+                  {% else %}
+                    <li><span class="fa fa-star fa-2x" aria-hidden="true"></span></li>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
           </ul>
           <p class="card-text"><small class="text-muted">{{ favor_rel.0.date }}</small></p>
         </div>

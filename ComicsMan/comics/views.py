@@ -1,11 +1,12 @@
 # TODO: Создать отдельный список избранного.
+# TODO: Переписать формирование словаря звёзд рейтинга.
 
 from datetime import datetime
 
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from .models import Comics, News, Reviews, Raiting
+from .models import Comics, News, Reviews, Rating
 
 class AppIndexView(View):
     """Для главной станицы."""
@@ -14,7 +15,7 @@ class AppIndexView(View):
         self.reviews = Reviews.objects.all()
         self.comics = Comics.objects.all()
         self.news = News.objects.last()
-        self.raiting = Raiting.objects.all()
+        self.rating = Rating.objects.all()
 
         self.comics_list = list(self.comics)
         self.comics_len = len(self.comics_list)
@@ -48,6 +49,12 @@ class AppIndexView(View):
         return result
 
     def get(self, request):
+        rating_dict = {key.title:[0, 0, 0] for key in self.comics}
+        for comics_ in self.rating:
+            rating_dict[comics_.comics.title][0] += comics_.star.value
+            rating_dict[comics_.comics.title][1] += 1
+            rating_dict[comics_.comics.title][2] = round(rating_dict[comics_.comics.title][0]/rating_dict[comics_.comics.title][1])
+
         header_slider_list, self.header_slider_len = self.checkObject( self.comics_list, self.comics_len, self.header_slider_len)
         new_rel, self.new_rel_len = self.checkObject( self.comics_list, self.comics_len, self.new_rel_len)
         favor_rel, self.favor_rel_len = self.checkObject( self.comics_list, self.comics_len, self.favor_rel_len)
@@ -69,6 +76,9 @@ class AppIndexView(View):
 
                           "new_rel": new_rel,
                           "favor_rel": favor_rel,
+
+                          "rating_dict": rating_dict,
+                          "stars": range(5),
 
                           "date": self.date,
                           "news": self.news,

@@ -96,7 +96,7 @@ class Star(models.Model):
         verbose_name_plural = "Звёзды рейтинга"
 
 
-class Raiting(models.Model):
+class Rating(models.Model):
     """Рейтинг."""
     ip = models.CharField("IP", max_length=15)
     star = models.ForeignKey(Star, on_delete=models.CASCADE,
