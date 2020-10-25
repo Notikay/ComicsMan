@@ -1,12 +1,9 @@
-# TODO: Создать отдельный список избранного.
-# TODO: Переписать формирование словаря звёзд рейтинга.
-
 from datetime import datetime
 
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from .models import Comics, News, Reviews, Rating
+from .models import Comics, News, Reviews, Rating, Favorites
 
 class AppIndexView(View):
     """Для главной станицы."""
@@ -14,6 +11,7 @@ class AppIndexView(View):
     def __init__(self):
         self.reviews = Reviews.objects.all()
         self.comics = Comics.objects.all()
+        self.favorites = Favorites.objects.all()
         self.news = News.objects.last()
         self.rating = Rating.objects.all()
 
@@ -25,8 +23,8 @@ class AppIndexView(View):
 
         self.header_slider_len = 8
         self.new_rel_len = 8
-        self.favor_rel_len = 7
         self.reviews_slider_len = 6
+        self.stars_len = 5
 
         self.current_datetime = datetime.now()
         self.date = f"{self.current_datetime.strftime('%B')} {self.current_datetime.day}: "
@@ -57,7 +55,6 @@ class AppIndexView(View):
 
         header_slider_list, self.header_slider_len = self.checkObject( self.comics_list, self.comics_len, self.header_slider_len)
         new_rel, self.new_rel_len = self.checkObject( self.comics_list, self.comics_len, self.new_rel_len)
-        favor_rel, self.favor_rel_len = self.checkObject( self.comics_list, self.comics_len, self.favor_rel_len)
         reviews_list, self.reviews_slider_len = self.checkObject(self.reviews, self.reviews_len, self.reviews_slider_len)
 
         header_slider = self.distribution(header_slider_list, self.header_slider_len)
@@ -75,10 +72,10 @@ class AppIndexView(View):
                           "comics_list": self.comics,
 
                           "new_rel": new_rel,
-                          "favor_rel": favor_rel,
+                          "favor_rel": self.favorites,
 
                           "rating_dict": rating_dict,
-                          "stars": range(5),
+                          "stars": range(self.stars_len),
 
                           "date": self.date,
                           "news": self.news,

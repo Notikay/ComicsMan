@@ -174,18 +174,18 @@
     <div class="big-card comics card mx-auto col-md-12 col-lg-6">
       <div class="row no-gutters">
         <div class="comics-img col-md-6 col-lg-7 text-center">
-          <a href="{{ favor_rel.0.url }}">
-            <img class="cover-img card-img" src="{{ favor_rel.0.image.url }}" alt="0 new comics">
+          <a href="{{ favor_rel.0.comics.all.0.url }}">
+            <img class="cover-img card-img" src="{{ favor_rel.0.comics.all.0.image.url }}" alt="0 new comics">
           </a>
         </div>
         <div class="comics-body card-body col-md-6 col-lg-5 d-none d-md-block">
           <h5 class="comics-title card-title">
-            <a class="a" href="{{ favor_rel.0.url }}">{{ favor_rel.0.title }}</a>
+            <a class="a" href="{{favor_rel.0.comics.all.0.url }}">{{ favor_rel.0.comics.all.0.title }}</a>
           </h5>
-          <p class="hide-text card-text">{{ favor_rel.0.description }}</p>
+          <p class="hide-text card-text">{{ favor_rel.0.comics.all.0.description }}</p>
           <ul class="stars">
             {% for key, value in rating_dict.items %}
-              {% if favor_rel.0.title == key%}
+              {% if favor_rel.0.comics.all.0.title == key%}
                 {% for star in stars %}
                   <li><span class="{% if value.2 != 0 and forloop.counter <= value.2%}active{% endif %} fa fa-star fa-2x" aria-hidden="true"></span></li>
                 {% endfor %}
@@ -197,7 +197,7 @@
       </div>
     </div>
     <div class="small-card justify-content-center row col-md-12 col-lg-6">
-      {% for favor_comics in favor_rel %}
+      {% for favor_comics in favor_rel.0.comics.all %}
         {% if forloop.first %}
         {% else %}
           <div class="comics card col-md-3 col-lg-4 {% if forloop.counter0 > 2 %}d-none d-md-block{% endif %}">

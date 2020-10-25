@@ -144,3 +144,16 @@ class News(models.Model):
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
+
+class Favorites(models.Model):
+    """Избранное."""
+    comics = models.ManyToManyField(Comics, verbose_name="Комиксы",
+                                    related_name="favorites")
+    date = models.DateField("Дата", default=date.today())
+
+    def __str__(self):
+        return f"Избранное на {self.date}"
+
+    class Meta:
+        verbose_name = "Избранный"
+        verbose_name_plural = "Избранное"
