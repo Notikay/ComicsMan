@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 {% load static %}
-
 <html lang="ru">
   <head>
     <!-- Required meta tags -->
@@ -15,10 +13,11 @@
     <!-- <link rel="stylesheet" href="{% static 'libs/bootstrap/font-awesome.min.css' %}"> -->
 
 
-    <link rel="stylesheet" href="{% static 'comics/css/default.css' %}">
-    <link rel="stylesheet" href="{% static 'comics/css/index_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'comics/css/styles.css' %}">
+    <link rel="stylesheet" href="{% block CSS %}#{% endblock CSS %}">
 
-    <title>ComicsMan</title>
+
+    <title>{% block title %}ComicsMan{% endblock title %}</title>
   </head>
   <body>
     <div class="preloader">
@@ -29,57 +28,81 @@
     <header >
       <div class="header">
         <div class="container">
-          {% block header_nav %} Навигация {% endblock %}
-          {% block comics_slider %} Слайдер {% endblock %}
+          <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
+            <div class="container">
+              <a class="navbar-brand" href="{% url 'home'%}">
+                <img class="img-brand" src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-pills text-center">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home'%}" >Главная</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Каталог
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="a dropdown-item" href="#">Новинки</a>
+                      <a class="a dropdown-item" href="#">Популярное</a>
+                      <a class="a dropdown-item" href="#">Рекомендации</a>
+                      <a class="a dropdown-item" href="#">Случайное</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Новости</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">О нас</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Контакты</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          {% block header_content %} Контент шапки {% endblock header_content%}
         </div>
       </div>
     </header>
     <main>
       <div class="main">
-        <section class="filters">
-          <div class="container">
-            <h2 class="section-headline">Что почитать?</h2>
-            <hr class="hr">
-            {% block new_releases %} Новые релизы {% endblock %}
-            {% block favorites %} Избранное {% endblock %}
-          </div>
-        </section>
-        <section class="news">
-          <div class="container">
-            <h2 class="section-headline">Новости</h2>
-            <hr class="hr">
-            {% block news %} Новость дня {% endblock %}
-          </div>
-        </section>
-        <section class="marvel-dc">
-          <div class="container">
-            <h2 class="section-headline">Выбор за тобой!</h2>
-            <hr class="hr">
-            {% block marvel-dc %} MARVEL/DC {% endblock %}
-          </div>
-        </section>
-        <section class="newsletter">
-          <div class="container">
-            <h2 class="section-headline">Новостная рассылка</h2>
-            <hr class="hr">
-            {% block newsletter %} Подписаться {% endblock %}
-          </div>
-        </section>
-        <section class="testimonials">
-          <div class="container">
-            <h2 class="section-headline">Отзывы</h2>
-            <hr class="hr">
-            {% block testimonials %} 5 Тони Старков из 5! {% endblock %}
-          </div>
-        </section>
+        {% block main %} Основной контент {% endblock main%}
       </div>
     </main>
     <footer>
       <div class="footer">
-         <div class="container">
-           {% block footer_content %} Лого и соц сети {% endblock %}
-           {% block footer_copyright %} Авторские права {% endblock %}
-         </div>
+        <div class="container">
+          <div class="footer-content">
+            <div class="row">
+              <div class="footer-brand text-center col-12">
+                <a class="navbar-brand" href="{% url 'home'%}">
+                  <img class="img-brand" src="{% static 'comics/img/header/logo.png' %}" alt="logotype">
+                </a>
+              </div>
+              <ul class="social-networks mx-auto">
+                <li><a class="a" href="//github.com/Notikay"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
+                <li><a class="a" href="//vk.com/notikay"><i class="fa fa-vk fa-2x" aria-hidden="true"></i></a></li>
+                <li><a class="a" href="//instagram.com/tonik_bis"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                <li><a class="a" href="//t.me/notikay"><i class="fa fa-telegram fa-2x" aria-hidden="true"></i></a></li>
+                <li><a class="a" href="//youtube.com/channel/UCXXfur4BDjKMApZJL3x3uUQ/featured?view_as=subscriber"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="copyright text-center">
+            <a class="a" href="//ru.freepik.com/photos/background">Background фото создан(а) freepik - ru.freepik.com</a>
+            <p>© 2020 Библиотека комиксов ComicsMan. <a class="a" href="#">Карта сайта</a>.</p>
+            <p>
+              <a href="//jigsaw.w3.org/css-validator/check/referer">
+                <img class="w3-css-validation" src="//jigsaw.w3.org/css-validator/images/vcss" alt="Правильный CSS!" />
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
     <div id="btn-go-top">

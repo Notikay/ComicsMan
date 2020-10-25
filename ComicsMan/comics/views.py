@@ -5,8 +5,8 @@ from django.views.generic.base import View
 
 from .models import Comics, News, Reviews, Rating, Favorites
 
-class AppIndexView(View):
-    """Для главной станицы."""
+class HomeView(View):
+    """Главная"""
 
     def __init__(self):
         self.reviews = Reviews.objects.all()
@@ -60,7 +60,7 @@ class AppIndexView(View):
         header_slider = self.distribution(header_slider_list, self.header_slider_len)
         reviews_slider = self.distribution(reviews_list, self.reviews_slider_len)
 
-        return render(request, "comics/apps/app_index.html",
+        return render(request, "comics/pages/home.html",
                       {
                           "header_slider_len": range(self.header_slider_len),
                           "header_slider": header_slider,
@@ -80,3 +80,14 @@ class AppIndexView(View):
                           "date": self.date,
                           "news": self.news,
                       })
+
+class NewReleasesView(View):
+    """Новые релизы"""
+
+    def __init__(self):
+        self.current_datetime = datetime.now()
+        self.date = f"{self.current_datetime.strftime('%B')} {self.current_datetime.day}: "
+
+    def get(self, request):
+        return render(request, "comics/pages/new_releases.html",
+                      { "date": self.date })

@@ -1,33 +1,15 @@
 /*
 ==== CSS Navigation ====
 1.Header
-(Навигация, Слайдер комиксов)
+(Слайдер комиксов)
 
 2.Main
 (Новые релизы, Избранное, Новости, Подписка, Отзывы)
-
-3.Footer
-(Контент)
 */
 
 
+
 /*==== 1.Header ====*/
-.header {
-  background: url(../img/header/bg.jpg) no-repeat bottom;
-  background-size: 100% 100%;
-}
-
-/* Навигация */
-.header .navbar {
-  padding-top: 30px;
-
-  transition: .3s linear;
-}
-
-@media (max-width: 314px) {
-  .header .navbar-brand { width: 70%; }
-}
-
 /* Слайдер комиксов */
 .header .comics-slider { padding-top: 135px; }
 
@@ -178,19 +160,3 @@
 .testimonials .item { padding: 10px; }
 
 .testimonials .item-text { height: 200px; }
-
-
-
-/*==== 3.Footer ====*/
-.footer { background-color: #151515; }
-
-
-/* Контент */
-.social-networks { padding-top: 20px; }
-
-.social-networks li {
-  float: left;
-  list-style-type: none;
-}
-
-.footer .copyright { padding-top: 80px; }
