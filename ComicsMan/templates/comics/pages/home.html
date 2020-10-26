@@ -95,7 +95,7 @@
         <div class="container">
           <div class="row d-flex justify-content-center row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
             {% for new_comics in new_rel %}
-              <div class="new-comics col {% if forloop.counter0 > 2 %}d-none {% if forloop.counter0 < 6 %}d-md-block {% else %}d-xl-block{% endif %}{% endif %}">
+              <div class="showcase col {% if forloop.counter0 > 2 %}d-none {% if forloop.counter0 < 6 %}d-md-block {% else %}d-xl-block{% endif %}{% endif %}">
                 <div class="comics card mx-auto">
                   <div class="comics-img text-center">
                     <a href="{{ new_comics.url }}">
@@ -129,7 +129,7 @@
       </div>
       <div class="click-btn">
         <div class="form-btn">
-          <a class="a-btn" href="{% url 'new_releases'%}">Посмотреть всё</a>
+          <a class="a-btn" href="{% url 'all_comics'%}">Все комиксы</a>
         </div>
       </div>
     </div>

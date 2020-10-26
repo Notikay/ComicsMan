@@ -4,7 +4,7 @@
 (Слайдер комиксов)
 
 2.Main
-(Новые релизы, Избранное, Новости, Подписка, Отзывы)
+(Избранное, Новости, Подписка, Отзывы)
 */
 
 
@@ -43,17 +43,6 @@
 
 
 /*==== 2.Main ====*/
-/* Новые релизы */
-.new-releases { padding-top: 0px; }
-
-.new-releases .comics-title { margin-bottom: 0; }
-
-.new-releases .cover-img { width: 260px; }
-.new-releases .cover-img:hover { width: 255px; }
-
-.new-comics { padding: 10px 15px; }
-
-
 /* Избранное */
 .small-card .comics { padding: 10px 15px 20px; }
 

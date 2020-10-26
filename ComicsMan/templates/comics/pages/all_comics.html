@@ -1,0 +1,62 @@
+<!-- TODO: Добавить пагинацию. -->
+
+{% extends 'comics/index.html' %}
+{% load static %}
+
+{% block title %}Все комиксы{% endblock title %}
+
+{% block CSS %}{% static 'comics/css/all_comics.css' %}{% endblock CSS %}
+
+{% block header_content %}
+<section class="headline-content">
+    <h1>
+        <p><small>Просмотр комиксов</small></p>
+        <p><strong>Каталог</strong></p>
+    </h1>
+</section>
+{% endblock header_content %}
+
+{% block main %}
+<section class="new_releases">
+    <div class="container">
+        <h2 class="section-headline">Все комиксы</h2>
+        <hr class="hr">
+        <div class="comics-display card-deck">
+            <div class="container">
+                <div class="row d-flex justify-content-center row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                    {% for comics in comics_list %}
+                        <div class="showcase col {% if forloop.counter0 > 2 %}d-none {% if forloop.counter0 < 6 %}d-md-block {% else %}d-xl-block{% endif %}{% endif %}">
+                            <div class="comics card mx-auto">
+                                <div class="comics-img text-center">
+                                    <a href="{{ comics.url }}">
+                                        <img class="cover-img card-img-top" src="{{ comics.image.url }}" alt="{{ forloop.counter0 }} new comics">
+                                    </a>
+                                </div>
+                                <div class="comics-body card-body d-flex justify-content-center">
+                                    <h5 class="comics-title card-title text-center">
+                                        <a class="a" href="{{ comics.url }}">{{ comics.title }}</a>
+                                    </h5>
+                                </div>
+                                <div class="comics-footer card-footer text-center">
+                                    <hr class="comics-footer-hr">
+                                    <ul class="stars">
+                                        {% for key, value in rating_dict.items %}
+                                            {% if comics.title == key %}
+                                                {% for star in stars %}
+                                                    <li><span class="{% if value.2 != 0 and forloop.counter <= value.2%}active{% endif %} fa fa-star" aria-hidden="true"></span></li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                    <hr class="comics-footer-hr">
+                                    <small class="text-muted">{{ comics.date }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}

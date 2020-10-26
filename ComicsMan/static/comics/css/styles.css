@@ -22,6 +22,8 @@
 21.Загрузка страницы
 22.Footer
 23.Header
+24.Контент заголовка
+25.Витрина
 */
 
 
@@ -471,3 +473,34 @@ body {font-family: Roboto Slab, serif;}
   background: url(../img/header/bg.jpg) no-repeat bottom;
   background-size: 100% 100%;
 }
+
+
+/* 24.Контент заголовка */
+.headline-content {
+  padding-top: 135px;
+
+  text-align: center;
+  color: #fff;
+}
+
+.headline-content h1 { font-size: 45pt; }
+
+.headline-content small { font-weight: 300; }
+
+.headline-content strong { font-weight: 700; }
+
+@media (max-width: 767px) {
+  .headline-content h1 { font-size: 23pt; }
+}
+
+
+/* 25.Витрина */
+.showcase { padding-top: 0px; }
+
+.showcase .comics-title { margin-bottom: 0; }
+
+.showcase .cover-img { width: 260px; }
+
+.showcase .cover-img:hover { width: 255px; }
+
+.showcase { padding: 10px 15px; }
