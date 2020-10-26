@@ -504,3 +504,23 @@ body {font-family: Roboto Slab, serif;}
 .showcase .cover-img:hover { width: 255px; }
 
 .showcase { padding: 10px 15px; }
+
+
+/* 26.Пагинация */
+.paginate {
+  text-align: center;
+
+  padding-top: 20px;
+}
+
+.paginate ul { padding: 0; }
+
+.paginate li {
+  font-size: 14pt;
+
+  display: inline;
+}
+
+.paginate a { color: #d81a24; }
+
+.paginate .page-control { padding: 0 10px; }

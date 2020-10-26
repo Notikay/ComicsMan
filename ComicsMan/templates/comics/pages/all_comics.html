@@ -17,19 +17,19 @@
 {% endblock header_content %}
 
 {% block main %}
-<section class="new_releases">
+<section class="all_comics">
     <div class="container">
         <h2 class="section-headline">Все комиксы</h2>
         <hr class="hr">
         <div class="comics-display card-deck">
             <div class="container">
                 <div class="row d-flex justify-content-center row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-                    {% for comics in comics_list %}
+                    {% for comics in comics_page %}
                         <div class="showcase col {% if forloop.counter0 > 2 %}d-none {% if forloop.counter0 < 6 %}d-md-block {% else %}d-xl-block{% endif %}{% endif %}">
                             <div class="comics card mx-auto">
                                 <div class="comics-img text-center">
                                     <a href="{{ comics.url }}">
-                                        <img class="cover-img card-img-top" src="{{ comics.image.url }}" alt="{{ forloop.counter0 }} new comics">
+                                        <img class="cover-img card-img-top" src="{{ comics.image.url }}" alt="{{ forloop.counter0 }} comics">
                                     </a>
                                 </div>
                                 <div class="comics-body card-body d-flex justify-content-center">
@@ -57,6 +57,7 @@
                 </div>
             </div>
         </div>
+        {% include "comics/include/pagination.html" with page=comics_page %}
     </div>
 </section>
 {% endblock main %}

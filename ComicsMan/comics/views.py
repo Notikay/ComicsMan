@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.shortcuts import render
 from django.views.generic.base import View
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Comics, News, Reviews, Rating, Favorites
 
@@ -88,14 +89,26 @@ class AllComicsView(View):
     """Все комиксы"""
 
     def __init__(self):
+        self.comics_page_len = 3
+
         self.current_datetime = datetime.now()
         self.date = f"{self.current_datetime.strftime('%B')} {self.current_datetime.day}: "
 
     def get(self, request):
+        paginator = Paginator(comics, self.comics_page_len)
+        page = request.GET.get('page')
+
+        try:
+            comics_page = paginator.page(page)
+        except PageNotAnInteger:
+            comics_page = paginator.page(1)
+        except EmptyPage:
+            comics_page = paginator.page(paginator.num_pages)
+
         return render(request, "comics/pages/all_comics.html",
                       {
-                          "comics_len": range(comics_len),
-                          "comics_list": comics,
+                          "page": page,
+                          "comics_page": comics_page,
 
                           "rating_dict": rating_dict,
                           "stars": range(stars_len),
