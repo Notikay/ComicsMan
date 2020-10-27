@@ -89,7 +89,7 @@ class AllComicsView(View):
     """Все комиксы"""
 
     def __init__(self):
-        self.comics_page_len = 3
+        self.comics_page_len = 4
 
         self.current_datetime = datetime.now()
         self.date = f"{self.current_datetime.strftime('%B')} {self.current_datetime.day}: "
